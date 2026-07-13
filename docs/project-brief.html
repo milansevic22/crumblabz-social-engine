@@ -1,0 +1,519 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>CrumbLabz Social Engine - Project Brief</title>
+    <style>
+      :root {
+        --ink: #171717;
+        --muted: #5f625d;
+        --paper: #fbfbf8;
+        --line: #deded7;
+        --mint: #2f8f83;
+        --coral: #d85f45;
+        --amber: #d39b2a;
+        --plum: #6f4e7c;
+      }
+
+      * {
+        box-sizing: border-box;
+      }
+
+      body {
+        margin: 0;
+        background: #f4f5f1;
+        color: var(--ink);
+        font-family:
+          Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont,
+          "Segoe UI", sans-serif;
+        line-height: 1.5;
+      }
+
+      a {
+        color: var(--mint);
+        font-weight: 700;
+      }
+
+      .page {
+        max-width: 1120px;
+        margin: 0 auto;
+        padding: 32px 20px 48px;
+      }
+
+      .hero,
+      .section,
+      .panel {
+        background: rgba(255, 255, 255, 0.88);
+        border: 1px solid rgba(222, 222, 215, 0.92);
+        border-radius: 10px;
+        box-shadow: 0 18px 50px rgba(23, 23, 23, 0.08);
+      }
+
+      .hero {
+        padding: 30px;
+      }
+
+      .eyebrow {
+        color: var(--mint);
+        font-size: 12px;
+        font-weight: 800;
+        letter-spacing: 0.14em;
+        margin: 0 0 8px;
+        text-transform: uppercase;
+      }
+
+      h1,
+      h2,
+      h3,
+      p {
+        margin-top: 0;
+      }
+
+      h1 {
+        font-size: clamp(34px, 6vw, 58px);
+        line-height: 1.02;
+        margin-bottom: 14px;
+      }
+
+      h2 {
+        font-size: 24px;
+        margin-bottom: 12px;
+      }
+
+      h3 {
+        font-size: 17px;
+        margin-bottom: 8px;
+      }
+
+      .lede {
+        color: var(--muted);
+        font-size: 18px;
+        max-width: 800px;
+      }
+
+      .meta-grid,
+      .cards,
+      .two-col,
+      .three-col,
+      .pipeline {
+        display: grid;
+        gap: 16px;
+      }
+
+      .meta-grid {
+        grid-template-columns: repeat(4, minmax(0, 1fr));
+        margin-top: 24px;
+      }
+
+      .two-col {
+        grid-template-columns: 1fr 1fr;
+      }
+
+      .three-col {
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+      }
+
+      .pipeline {
+        grid-template-columns: repeat(4, minmax(0, 1fr));
+      }
+
+      .section {
+        margin-top: 18px;
+        padding: 24px;
+      }
+
+      .panel {
+        padding: 18px;
+      }
+
+      .metric {
+        background: var(--paper);
+        border: 1px solid var(--line);
+        border-radius: 8px;
+        padding: 14px;
+      }
+
+      .metric strong {
+        display: block;
+        font-size: 20px;
+      }
+
+      .metric span,
+      .muted {
+        color: var(--muted);
+      }
+
+      .tag {
+        border-radius: 999px;
+        display: inline-block;
+        font-size: 12px;
+        font-weight: 800;
+        margin: 4px 6px 4px 0;
+        padding: 5px 9px;
+      }
+
+      .tag.mint {
+        background: rgba(47, 143, 131, 0.12);
+        color: var(--mint);
+      }
+
+      .tag.coral {
+        background: rgba(216, 95, 69, 0.12);
+        color: var(--coral);
+      }
+
+      .tag.amber {
+        background: rgba(211, 155, 42, 0.14);
+        color: #9a6b13;
+      }
+
+      .tag.plum {
+        background: rgba(111, 78, 124, 0.12);
+        color: var(--plum);
+      }
+
+      ul,
+      ol {
+        margin-bottom: 0;
+        padding-left: 20px;
+      }
+
+      li {
+        margin: 6px 0;
+      }
+
+      .flow-card {
+        background: var(--paper);
+        border: 1px solid var(--line);
+        border-left: 5px solid var(--mint);
+        border-radius: 8px;
+        padding: 14px;
+        min-height: 132px;
+      }
+
+      .flow-card:nth-child(2) {
+        border-left-color: var(--amber);
+      }
+
+      .flow-card:nth-child(3) {
+        border-left-color: var(--plum);
+      }
+
+      .flow-card:nth-child(4) {
+        border-left-color: var(--coral);
+      }
+
+      .mock {
+        background: #20221f;
+        border-radius: 10px;
+        color: white;
+        overflow: hidden;
+      }
+
+      .mock-header {
+        background: #111310;
+        display: flex;
+        gap: 8px;
+        padding: 12px;
+      }
+
+      .dot {
+        background: #d8d8d2;
+        border-radius: 999px;
+        height: 10px;
+        width: 10px;
+      }
+
+      .mock-body {
+        display: grid;
+        gap: 12px;
+        grid-template-columns: 0.8fr 1.2fr;
+        padding: 16px;
+      }
+
+      .mock-card {
+        background: rgba(255, 255, 255, 0.08);
+        border: 1px solid rgba(255, 255, 255, 0.12);
+        border-radius: 8px;
+        padding: 12px;
+      }
+
+      .status {
+        background: rgba(47, 143, 131, 0.2);
+        border-radius: 999px;
+        color: #9ee1d6;
+        display: inline-block;
+        font-size: 12px;
+        font-weight: 800;
+        padding: 4px 8px;
+      }
+
+      .warning {
+        background: rgba(211, 155, 42, 0.12);
+        border-color: rgba(211, 155, 42, 0.34);
+      }
+
+      .footer {
+        color: var(--muted);
+        font-size: 13px;
+        margin-top: 18px;
+        text-align: center;
+      }
+
+      code {
+        background: rgba(23, 23, 23, 0.07);
+        border-radius: 5px;
+        padding: 2px 5px;
+      }
+
+      @media (max-width: 860px) {
+        .meta-grid,
+        .two-col,
+        .three-col,
+        .pipeline,
+        .mock-body {
+          grid-template-columns: 1fr;
+        }
+
+        .hero,
+        .section {
+          padding: 20px;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <main class="page">
+      <section class="hero">
+        <p class="eyebrow">CrumbLabz Internal MVP</p>
+        <h1>CrumbLabz Social Engine</h1>
+        <p class="lede">
+          A private content operations dashboard for planning, approving,
+          scheduling, and publishing CrumbLabz social media content across
+          LinkedIn, Instagram, TikTok, YouTube Shorts, Threads, Bluesky, and X.
+        </p>
+
+        <div class="meta-grid">
+          <div class="metric">
+            <strong>GitHub</strong>
+            <span>
+              <a href="https://github.com/milansevic22/crumblabz-social-engine">
+                milansevic22/crumblabz-social-engine
+              </a>
+            </span>
+          </div>
+          <div class="metric">
+            <strong>Latest Commit</strong>
+            <span><code>d2f6fc1</code> build config</span>
+          </div>
+          <div class="metric">
+            <strong>Stack</strong>
+            <span>Next.js, TypeScript, Firebase, Vercel</span>
+          </div>
+          <div class="metric">
+            <strong>Status</strong>
+            <span>Code complete for review; Vercel setup in progress</span>
+          </div>
+        </div>
+      </section>
+
+      <section class="section">
+        <h2>What It Solves</h2>
+        <div class="two-col">
+          <div class="panel">
+            <h3>Current problem</h3>
+            <ul>
+              <li>Social post ideas get lost before they are used.</li>
+              <li>Manual posting is inconsistent and depends on one person.</li>
+              <li>Approval is informal, which creates brand risk.</li>
+              <li>Results are hard to track across platforms.</li>
+            </ul>
+          </div>
+          <div class="panel">
+            <h3>Proposed system</h3>
+            <ul>
+              <li>One place for campaigns, drafts, approvals, and schedules.</li>
+              <li>Admin-controlled publishing workflow.</li>
+              <li>Reusable brand rules and content patterns.</li>
+              <li>Publishing logs and future analytics snapshots.</li>
+            </ul>
+          </div>
+        </div>
+      </section>
+
+      <section class="section">
+        <h2>Review Dashboard Concept</h2>
+        <div class="mock" aria-label="Dashboard mockup">
+          <div class="mock-header">
+            <span class="dot"></span>
+            <span class="dot"></span>
+            <span class="dot"></span>
+          </div>
+          <div class="mock-body">
+            <div class="mock-card">
+              <p class="eyebrow">Campaigns</p>
+              <h3>Build in Public</h3>
+              <p class="muted">
+                Show how CrumbLabz turns rough ideas into shipped MVPs.
+              </p>
+              <span class="tag mint">LinkedIn</span>
+              <span class="tag coral">Instagram</span>
+              <span class="tag amber">TikTok</span>
+            </div>
+            <div class="mock-card">
+              <p class="eyebrow">Post Pipeline</p>
+              <h3>From messy client idea to useful dashboard</h3>
+              <p>
+                Most MVPs fail before the build starts because the idea is still
+                too foggy. CrumbLabz turns the first call into a scoped,
+                deployable product review.
+              </p>
+              <span class="status">Needs approval</span>
+              <span class="status">Scheduled</span>
+              <span class="status">Mock publish ready</span>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="section">
+        <h2>Workflow</h2>
+        <div class="pipeline">
+          <div class="flow-card">
+            <h3>1. Draft</h3>
+            <p>
+              Capture a post idea, platform, campaign, caption, and asset note.
+            </p>
+          </div>
+          <div class="flow-card">
+            <h3>2. Approve</h3>
+            <p>
+              Review tone, client safety, CTA, and brand fit before anything
+              can publish.
+            </p>
+          </div>
+          <div class="flow-card">
+            <h3>3. Schedule</h3>
+            <p>
+              Move approved content into a timed queue managed by the dashboard.
+            </p>
+          </div>
+          <div class="flow-card">
+            <h3>4. Publish</h3>
+            <p>
+              Send approved posts through Buffer first, then add direct platform
+              APIs later.
+            </p>
+          </div>
+        </div>
+      </section>
+
+      <section class="section">
+        <h2>Technology</h2>
+        <div class="three-col">
+          <div class="panel">
+            <h3>Frontend</h3>
+            <span class="tag mint">Next.js App Router</span>
+            <span class="tag mint">TypeScript</span>
+            <span class="tag mint">Tailwind CSS</span>
+            <p class="muted">
+              Internal dashboard, content pipeline, campaign controls, and
+              review-mode interactions.
+            </p>
+          </div>
+          <div class="panel">
+            <h3>Data and server</h3>
+            <span class="tag plum">Firebase Firestore</span>
+            <span class="tag plum">Firebase Admin SDK</span>
+            <span class="tag plum">Protected API routes</span>
+            <p class="muted">
+              Firestore stores campaigns, channels, posts, and publish logs.
+              Admin SDK handles private writes.
+            </p>
+          </div>
+          <div class="panel">
+            <h3>Deployment</h3>
+            <span class="tag coral">Vercel</span>
+            <span class="tag coral">Vercel Cron</span>
+            <span class="tag coral">Buffer API</span>
+            <p class="muted">
+              Vercel hosts the app and runs scheduled checks. Buffer is the
+              first publishing gateway.
+            </p>
+          </div>
+        </div>
+      </section>
+
+      <section class="section">
+        <h2>MVP Scope</h2>
+        <div class="two-col">
+          <div class="panel">
+            <h3>Built in the repository</h3>
+            <ul>
+              <li>Internal social dashboard UI.</li>
+              <li>Sample campaigns, channels, posts, metrics, and brand rules.</li>
+              <li>Protected Firebase seed route.</li>
+              <li>Protected publish route.</li>
+              <li>Vercel Cron route for scheduled publishing.</li>
+              <li>Buffer publishing adapter shape.</li>
+              <li>Firebase security rules.</li>
+              <li>Setup and deployment documentation.</li>
+            </ul>
+          </div>
+          <div class="panel">
+            <h3>Next engineering step</h3>
+            <ul>
+              <li>Wire dashboard create/approve/schedule actions to Firestore.</li>
+              <li>Add Firebase Auth for private team login.</li>
+              <li>Add per-channel Buffer IDs.</li>
+              <li>Add media uploads through Firebase Storage.</li>
+              <li>Add live metrics sync and weekly reports.</li>
+            </ul>
+          </div>
+        </div>
+      </section>
+
+      <section class="section warning">
+        <h2>Current Deployment Note</h2>
+        <p>
+          The GitHub project is ready and current. The Vercel project connection
+          has not successfully produced a production deployment yet, despite the
+          repo being connected and pushed. If Vercel still shows no deployments,
+          the recommended fix is to delete only the Vercel project and re-import
+          the GitHub repository fresh.
+        </p>
+        <p>
+          The code has been validated locally with <code>pnpm typecheck</code>
+          and <code>pnpm build</code>. The latest pushed config also includes
+          explicit Vercel commands:
+          <code>pnpm install --ignore-scripts</code> and <code>pnpm build</code>.
+        </p>
+      </section>
+
+      <section class="section">
+        <h2>How To Review</h2>
+        <ol>
+          <li>
+            Open the GitHub repo:
+            <a href="https://github.com/milansevic22/crumblabz-social-engine">
+              https://github.com/milansevic22/crumblabz-social-engine
+            </a>
+          </li>
+          <li>Review <code>README.md</code> for setup and project structure.</li>
+          <li>Review <code>docs/boss-brief.md</code> for the business case.</li>
+          <li>Review <code>docs/deployment-checklist.md</code> for setup steps.</li>
+          <li>
+            For local review, run <code>pnpm install</code> and
+            <code>pnpm dev</code>, then open <code>http://localhost:3000</code>.
+          </li>
+        </ol>
+      </section>
+
+      <p class="footer">
+        Prepared for CrumbLabz review. No secrets or private Firebase keys are
+        included in this HTML.
+      </p>
+    </main>
+  </body>
+</html>
