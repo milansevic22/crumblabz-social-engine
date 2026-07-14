@@ -1,0 +1,623 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>CrumbLabz Social Engine - Technical Docs</title>
+    <style>
+      :root {
+        --ink: #171717;
+        --graphite: #3d403c;
+        --muted: #666b64;
+        --paper: #f7f7f2;
+        --white: #ffffff;
+        --line: #deded7;
+        --mint: #2f8f83;
+        --coral: #d85f45;
+        --amber: #d39b2a;
+        --plum: #6f4e7c;
+      }
+
+      * {
+        box-sizing: border-box;
+      }
+
+      body {
+        margin: 0;
+        background: #f3f4ef;
+        color: var(--ink);
+        font-family:
+          Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont,
+          "Segoe UI", sans-serif;
+        line-height: 1.55;
+      }
+
+      a {
+        color: var(--mint);
+        font-weight: 700;
+      }
+
+      code,
+      pre {
+        font-family:
+          "SFMono-Regular", Consolas, "Liberation Mono", Menlo, monospace;
+      }
+
+      code {
+        background: rgba(23, 23, 23, 0.07);
+        border-radius: 5px;
+        padding: 2px 5px;
+      }
+
+      pre {
+        background: #1f211f;
+        border-radius: 8px;
+        color: #f4f5ef;
+        overflow-x: auto;
+        padding: 16px;
+      }
+
+      .page {
+        margin: 0 auto;
+        max-width: 1180px;
+        padding: 32px 20px 52px;
+      }
+
+      .hero,
+      .section,
+      .card {
+        background: rgba(255, 255, 255, 0.9);
+        border: 1px solid rgba(222, 222, 215, 0.95);
+        border-radius: 10px;
+        box-shadow: 0 18px 48px rgba(23, 23, 23, 0.07);
+      }
+
+      .hero {
+        padding: 30px;
+      }
+
+      .section {
+        margin-top: 18px;
+        padding: 24px;
+      }
+
+      .card {
+        padding: 16px;
+      }
+
+      .eyebrow {
+        color: var(--mint);
+        font-size: 12px;
+        font-weight: 800;
+        letter-spacing: 0.14em;
+        margin: 0 0 8px;
+        text-transform: uppercase;
+      }
+
+      h1,
+      h2,
+      h3,
+      p {
+        margin-top: 0;
+      }
+
+      h1 {
+        font-size: clamp(34px, 6vw, 58px);
+        line-height: 1.03;
+        margin-bottom: 12px;
+      }
+
+      h2 {
+        font-size: 25px;
+        margin-bottom: 12px;
+      }
+
+      h3 {
+        font-size: 17px;
+        margin-bottom: 8px;
+      }
+
+      .lede {
+        color: var(--muted);
+        font-size: 18px;
+        max-width: 860px;
+      }
+
+      .grid,
+      .two,
+      .three,
+      .four,
+      .flow {
+        display: grid;
+        gap: 16px;
+      }
+
+      .two {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+      }
+
+      .three {
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+      }
+
+      .four {
+        grid-template-columns: repeat(4, minmax(0, 1fr));
+      }
+
+      .flow {
+        grid-template-columns: 0.9fr 1.1fr 0.9fr;
+      }
+
+      .metric {
+        background: var(--paper);
+        border: 1px solid var(--line);
+        border-radius: 8px;
+        padding: 14px;
+      }
+
+      .metric strong {
+        display: block;
+        font-size: 20px;
+      }
+
+      .muted,
+      .metric span {
+        color: var(--muted);
+      }
+
+      .tag {
+        border-radius: 999px;
+        display: inline-block;
+        font-size: 12px;
+        font-weight: 800;
+        margin: 4px 6px 4px 0;
+        padding: 5px 9px;
+      }
+
+      .tag.mint {
+        background: rgba(47, 143, 131, 0.12);
+        color: var(--mint);
+      }
+
+      .tag.coral {
+        background: rgba(216, 95, 69, 0.12);
+        color: var(--coral);
+      }
+
+      .tag.amber {
+        background: rgba(211, 155, 42, 0.14);
+        color: #946816;
+      }
+
+      .tag.plum {
+        background: rgba(111, 78, 124, 0.13);
+        color: var(--plum);
+      }
+
+      .callout {
+        background: rgba(211, 155, 42, 0.12);
+        border: 1px solid rgba(211, 155, 42, 0.35);
+        border-radius: 8px;
+        padding: 16px;
+      }
+
+      .ok {
+        background: rgba(47, 143, 131, 0.1);
+        border-color: rgba(47, 143, 131, 0.26);
+      }
+
+      .danger {
+        background: rgba(216, 95, 69, 0.1);
+        border-color: rgba(216, 95, 69, 0.28);
+      }
+
+      .node {
+        background: var(--paper);
+        border: 1px solid var(--line);
+        border-radius: 8px;
+        padding: 14px;
+      }
+
+      .arrow {
+        align-items: center;
+        color: var(--muted);
+        display: flex;
+        font-weight: 800;
+        justify-content: center;
+      }
+
+      table {
+        border-collapse: collapse;
+        width: 100%;
+      }
+
+      th,
+      td {
+        border-bottom: 1px solid var(--line);
+        padding: 10px;
+        text-align: left;
+        vertical-align: top;
+      }
+
+      th {
+        color: var(--graphite);
+        font-size: 13px;
+        text-transform: uppercase;
+      }
+
+      ul,
+      ol {
+        margin-bottom: 0;
+        padding-left: 20px;
+      }
+
+      li {
+        margin: 6px 0;
+      }
+
+      .footer {
+        color: var(--muted);
+        font-size: 13px;
+        margin-top: 18px;
+        text-align: center;
+      }
+
+      @media (max-width: 900px) {
+        .two,
+        .three,
+        .four,
+        .flow {
+          grid-template-columns: 1fr;
+        }
+
+        .hero,
+        .section {
+          padding: 20px;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <main class="page">
+      <section class="hero">
+        <p class="eyebrow">CrumbLabz Social Engine</p>
+        <h1>Technical Wiring Docs</h1>
+        <p class="lede">
+          This explains exactly how the project is wired, what is genuinely
+          working, what is currently demo mode, and what must be connected before
+          it becomes a real automated social posting system.
+        </p>
+
+        <div class="four">
+          <div class="metric">
+            <strong>Live app</strong>
+            <span>
+              <a href="https://crumblabz-social-engine.vercel.app">
+                crumblabz-social-engine.vercel.app
+              </a>
+            </span>
+          </div>
+          <div class="metric">
+            <strong>Repo</strong>
+            <span>
+              <a href="https://github.com/milansevic22/crumblabz-social-engine">
+                GitHub project
+              </a>
+            </span>
+          </div>
+          <div class="metric">
+            <strong>Stack</strong>
+            <span>Next.js, TypeScript, Tailwind, Firebase, Vercel</span>
+          </div>
+          <div class="metric">
+            <strong>Current mode</strong>
+            <span>Review/demo until Firebase and Buffer are fully configured</span>
+          </div>
+        </div>
+      </section>
+
+      <section class="section">
+        <h2>Honest Status</h2>
+        <div class="two">
+          <div class="callout ok">
+            <h3>Actually working now</h3>
+            <ul>
+              <li>The Next.js dashboard is built and deployed on Vercel.</li>
+              <li>The GitHub repository is connected and deploys to production.</li>
+              <li>The page shows the social content workflow end to end.</li>
+              <li>Protected API routes exist for seeding and publishing.</li>
+              <li>The Vercel Cron route exists and is scheduled once per day.</li>
+              <li>The dashboard can now read Firestore data when Firebase is configured and seeded.</li>
+            </ul>
+          </div>
+          <div class="callout danger">
+            <h3>Not live yet</h3>
+            <ul>
+              <li>No real LinkedIn, Instagram, TikTok, YouTube, Threads, Bluesky, or X account is connected inside the app yet.</li>
+              <li>The visible post data is demo data unless Firestore has been seeded.</li>
+              <li>The dashboard buttons mostly update the browser view; full write-back to Firestore is a next step.</li>
+              <li>Real posting requires Buffer credentials and real Buffer channel IDs.</li>
+              <li>Direct native platform APIs are not implemented in this MVP.</li>
+            </ul>
+          </div>
+        </div>
+      </section>
+
+      <section class="section">
+        <h2>System Map</h2>
+        <div class="flow">
+          <div class="node">
+            <h3>User dashboard</h3>
+            <p class="muted">
+              Built in <code>app/page.tsx</code> and
+              <code>components/social-dashboard.tsx</code>.
+            </p>
+            <span class="tag mint">Create</span>
+            <span class="tag mint">Approve</span>
+            <span class="tag mint">Schedule</span>
+          </div>
+          <div class="node">
+            <h3>Next.js API routes</h3>
+            <p class="muted">
+              Server-only routes protect admin operations and publishing checks.
+            </p>
+            <span class="tag plum">/api/admin/seed</span>
+            <span class="tag plum">/api/posts/publish</span>
+            <span class="tag plum">/api/cron/publish</span>
+          </div>
+          <div class="node">
+            <h3>External services</h3>
+            <p class="muted">
+              Firebase stores workflow data. Buffer is the first posting gateway.
+              Vercel hosts and schedules the app.
+            </p>
+            <span class="tag coral">Firebase</span>
+            <span class="tag coral">Buffer</span>
+            <span class="tag coral">Vercel</span>
+          </div>
+        </div>
+      </section>
+
+      <section class="section">
+        <h2>How Page Data Loads</h2>
+        <p>
+          The homepage is a server-rendered Next.js page. It asks
+          <code>lib/dashboard-data.ts</code> for dashboard data before rendering.
+        </p>
+        <pre>app/page.tsx
+  -> getDashboardData()
+    -> if Firebase Admin env vars exist:
+         read campaigns, channels, posts from Firestore
+       else:
+         use lib/sample-data.ts</pre>
+        <div class="callout">
+          <strong>Why this matters:</strong>
+          before this change, the dashboard always used sample data. Now it can
+          show real Firestore records after the Firebase service account and seed
+          step are complete. If Firebase is missing or empty, it intentionally
+          falls back to demo data so the page still loads.
+        </div>
+      </section>
+
+      <section class="section">
+        <h2>Important Files</h2>
+        <table>
+          <thead>
+            <tr>
+              <th>File</th>
+              <th>Purpose</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><code>app/page.tsx</code></td>
+              <td>Renders the main dashboard and loads either Firebase data or demo data.</td>
+            </tr>
+            <tr>
+              <td><code>components/social-dashboard.tsx</code></td>
+              <td>The interactive dashboard UI: draft creation, approval movement, scheduling, demo publishing, channel cards, metrics, and brand rules.</td>
+            </tr>
+            <tr>
+              <td><code>lib/dashboard-data.ts</code></td>
+              <td>Server-side data loader. Chooses Firestore when configured; otherwise uses sample data.</td>
+            </tr>
+            <tr>
+              <td><code>lib/sample-data.ts</code></td>
+              <td>Safe demo campaigns, channels, posts, metrics, and weekly pattern used for review mode and initial seeding.</td>
+            </tr>
+            <tr>
+              <td><code>lib/firebase/admin.ts</code></td>
+              <td>Initializes Firebase Admin SDK from private server-only environment variables.</td>
+            </tr>
+            <tr>
+              <td><code>lib/publishing/buffer.ts</code></td>
+              <td>Buffer GraphQL adapter for creating/scheduling a post through Buffer.</td>
+            </tr>
+            <tr>
+              <td><code>lib/auth.ts</code></td>
+              <td>Checks admin and cron secrets before sensitive routes run.</td>
+            </tr>
+            <tr>
+              <td><code>vercel.json</code></td>
+              <td>Defines the production cron job. On Vercel Hobby it must run no more than once per day.</td>
+            </tr>
+            <tr>
+              <td><code>firestore.rules</code></td>
+              <td>Locks client writes down. Admin writes happen through the server routes, not the browser.</td>
+            </tr>
+          </tbody>
+        </table>
+      </section>
+
+      <section class="section">
+        <h2>API Routes</h2>
+        <div class="three">
+          <div class="card">
+            <h3><code>POST /api/admin/seed</code></h3>
+            <p>
+              Copies the demo campaigns, channels, and posts into Firestore.
+              Protected by <code>x-admin-secret</code>.
+            </p>
+            <p class="muted">
+              If Firebase Admin is missing, it returns review-mode information
+              and does not write to Firestore.
+            </p>
+          </div>
+          <div class="card">
+            <h3><code>POST /api/posts/publish</code></h3>
+            <p>
+              Sends one post to Buffer when <code>BUFFER_API_KEY</code> and a
+              Buffer channel ID exist. Protected by <code>x-admin-secret</code>.
+            </p>
+            <p class="muted">
+              If Buffer is missing, it returns a mock response instead of
+              pretending a real post was sent.
+            </p>
+          </div>
+          <div class="card">
+            <h3><code>GET /api/cron/publish</code></h3>
+            <p>
+              Vercel calls this daily. It looks for due scheduled posts in
+              Firestore and attempts to send them to Buffer.
+            </p>
+            <p class="muted">
+              Protected by <code>CRON_SECRET</code>. Without Firebase or Buffer,
+              it reports review mode and sends nothing.
+            </p>
+          </div>
+        </div>
+      </section>
+
+      <section class="section">
+        <h2>Environment Variables</h2>
+        <div class="two">
+          <div class="card">
+            <h3>Public Firebase browser values</h3>
+            <pre>NEXT_PUBLIC_FIREBASE_API_KEY
+NEXT_PUBLIC_FIREBASE_AUTH_DOMAIN
+NEXT_PUBLIC_FIREBASE_PROJECT_ID
+NEXT_PUBLIC_FIREBASE_STORAGE_BUCKET
+NEXT_PUBLIC_FIREBASE_MESSAGING_SENDER_ID
+NEXT_PUBLIC_FIREBASE_APP_ID</pre>
+            <p class="muted">
+              These identify the Firebase web app. They are not the service
+              account key.
+            </p>
+          </div>
+          <div class="card">
+            <h3>Private server values</h3>
+            <pre>FIREBASE_PROJECT_ID
+FIREBASE_CLIENT_EMAIL
+FIREBASE_PRIVATE_KEY
+ADMIN_API_SECRET
+CRON_SECRET
+BUFFER_API_KEY
+BUFFER_DEFAULT_CHANNEL_ID</pre>
+            <p class="muted">
+              These must only live in Vercel environment variables or local
+              <code>.env.local</code>. Never commit or paste the private key.
+            </p>
+          </div>
+        </div>
+      </section>
+
+      <section class="section">
+        <h2>Data Model</h2>
+        <table>
+          <thead>
+            <tr>
+              <th>Collection</th>
+              <th>What it stores</th>
+              <th>Example fields</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><code>campaigns</code></td>
+              <td>Content themes and business goals.</td>
+              <td><code>name</code>, <code>goal</code>, <code>owner</code>, <code>stage</code>, <code>startDate</code>, <code>endDate</code></td>
+            </tr>
+            <tr>
+              <td><code>channels</code></td>
+              <td>Social accounts and publishing destinations.</td>
+              <td><code>platform</code>, <code>handle</code>, <code>cadence</code>, <code>status</code>, <code>bufferChannelId</code></td>
+            </tr>
+            <tr>
+              <td><code>posts</code></td>
+              <td>Drafts, approvals, scheduled posts, and publishing status.</td>
+              <td><code>caption</code>, <code>status</code>, <code>scheduledAt</code>, <code>targetPlatforms</code>, <code>bufferPostId</code></td>
+            </tr>
+            <tr>
+              <td><code>publishLogs</code></td>
+              <td>Audit trail for publishing attempts.</td>
+              <td><code>postId</code>, <code>provider</code>, <code>externalId</code>, <code>status</code>, <code>createdAt</code></td>
+            </tr>
+          </tbody>
+        </table>
+      </section>
+
+      <section class="section">
+        <h2>Post Status Flow</h2>
+        <pre>idea -> draft -> needs_approval -> approved -> scheduled -> publishing -> published
+
+scheduled -> failed</pre>
+        <p>
+          The dashboard currently demonstrates this movement in the browser.
+          The next engineering improvement is to make each button write the new
+          status back to Firestore so the state is shared by the whole team.
+        </p>
+      </section>
+
+      <section class="section">
+        <h2>Deployment Wiring</h2>
+        <ol>
+          <li>Code lives in GitHub: <code>milansevic22/crumblabz-social-engine</code>.</li>
+          <li>Vercel is connected to the GitHub repo.</li>
+          <li>Every push to <code>main</code> can create a production deployment.</li>
+          <li>Vercel installs dependencies with <code>pnpm install --ignore-scripts</code>.</li>
+          <li>Vercel builds with <code>pnpm build</code>.</li>
+          <li>Production serves from <code>https://crumblabz-social-engine.vercel.app</code>.</li>
+          <li>Vercel Cron calls <code>/api/cron/publish</code> once daily.</li>
+        </ol>
+      </section>
+
+      <section class="section">
+        <h2>Real Publishing Path</h2>
+        <pre>Firestore post with status scheduled
+  -> Vercel Cron calls /api/cron/publish
+    -> route checks CRON_SECRET
+    -> route finds due posts in Firestore
+    -> route calls createBufferPost()
+    -> Buffer queues or schedules the social post
+    -> Firestore post receives bufferPostId/status update
+    -> publishLogs receives an audit record</pre>
+        <div class="callout">
+          <strong>Current limitation:</strong>
+          the path is coded, but it only becomes real after Buffer is connected
+          and each destination has a real Buffer channel ID. TikTok, Instagram,
+          LinkedIn, and YouTube direct APIs are not the first version; Buffer is
+          the first gateway.
+        </div>
+      </section>
+
+      <section class="section">
+        <h2>Next Build Steps</h2>
+        <ol>
+          <li>Rotate the Firebase service account key that was exposed during setup.</li>
+          <li>Add the new Firebase Admin variables to Vercel.</li>
+          <li>Add a strong <code>ADMIN_API_SECRET</code> and <code>CRON_SECRET</code>.</li>
+          <li>Seed Firestore with <code>POST /api/admin/seed</code>.</li>
+          <li>Connect Buffer and add <code>BUFFER_API_KEY</code>.</li>
+          <li>Add real Buffer channel IDs to the <code>channels</code> documents.</li>
+          <li>Wire dashboard actions to Firestore writes.</li>
+          <li>Add private login before giving this to a wider team.</li>
+        </ol>
+      </section>
+
+      <p class="footer">
+        Prepared for CrumbLabz. This document intentionally separates deployed
+        code, demo data, and remaining integration work.
+      </p>
+    </main>
+  </body>
+</html>

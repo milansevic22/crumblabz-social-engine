@@ -305,7 +305,7 @@
           </div>
           <div class="metric">
             <strong>Latest Commit</strong>
-            <span><code>d2f6fc1</code> build config</span>
+            <span>Production deployment active</span>
           </div>
           <div class="metric">
             <strong>Stack</strong>
@@ -313,7 +313,7 @@
           </div>
           <div class="metric">
             <strong>Status</strong>
-            <span>Code complete for review; Vercel setup in progress</span>
+            <span>Live review app deployed; integrations still require credentials</span>
           </div>
         </div>
       </section>
@@ -371,7 +371,7 @@
               </p>
               <span class="status">Needs approval</span>
               <span class="status">Scheduled</span>
-              <span class="status">Mock publish ready</span>
+              <span class="status">Demo publish ready</span>
             </div>
           </div>
         </div>
@@ -477,16 +477,16 @@
       <section class="section warning">
         <h2>Current Deployment Note</h2>
         <p>
-          The GitHub project is ready and current. The Vercel project connection
-          has not successfully produced a production deployment yet, despite the
-          repo being connected and pushed. If Vercel still shows no deployments,
-          the recommended fix is to delete only the Vercel project and re-import
-          the GitHub repository fresh.
+          The GitHub project is connected to Vercel and production is deployed
+          at
+          <a href="https://crumblabz-social-engine.vercel.app">
+            https://crumblabz-social-engine.vercel.app</a>.
+          The first Vercel issue was caused by a cron schedule that ran too often
+          for the Hobby plan; the schedule is now once daily.
         </p>
         <p>
-          The code has been validated locally with <code>pnpm typecheck</code>
-          and <code>pnpm build</code>. The latest pushed config also includes
-          explicit Vercel commands:
+          The code has been validated with <code>pnpm typecheck</code> and
+          <code>pnpm build</code>. The pushed config includes explicit Vercel commands:
           <code>pnpm install --ignore-scripts</code> and <code>pnpm build</code>.
         </p>
       </section>

@@ -1,20 +1,23 @@
 import { SocialDashboard } from "@/components/social-dashboard";
+import { getDashboardData } from "@/lib/dashboard-data";
 import {
   brandRules,
-  campaigns,
-  channels,
   metrics,
-  posts,
   weeklyPlaybook
 } from "@/lib/sample-data";
 
-export default function Home() {
+export const dynamic = "force-dynamic";
+
+export default async function Home() {
+  const dashboardData = await getDashboardData();
+
   return (
     <SocialDashboard
       brandRules={brandRules}
-      campaigns={campaigns}
-      channels={channels}
-      initialPosts={posts}
+      campaigns={dashboardData.campaigns}
+      channels={dashboardData.channels}
+      dataMode={dashboardData.mode}
+      initialPosts={dashboardData.posts}
       metrics={metrics}
       weeklyPlaybook={weeklyPlaybook}
     />

@@ -35,11 +35,13 @@ import type {
   SocialPost,
   WeeklyPlaybookItem
 } from "@/types";
+import type { DashboardMode } from "@/lib/dashboard-data";
 
 type SocialDashboardProps = {
   brandRules: BrandRule[];
   campaigns: Campaign[];
   channels: SocialChannel[];
+  dataMode: DashboardMode;
   initialPosts: SocialPost[];
   metrics: MetricSnapshot[];
   weeklyPlaybook: WeeklyPlaybookItem[];
@@ -259,6 +261,7 @@ export function SocialDashboard({
   brandRules,
   campaigns,
   channels,
+  dataMode,
   initialPosts,
   metrics,
   weeklyPlaybook
@@ -275,7 +278,9 @@ export function SocialDashboard({
   );
   const [adminSecret, setAdminSecret] = useState("");
   const [notice, setNotice] = useState(
-    "Review mode is active until Firebase and Buffer keys are added."
+    dataMode === "firebase"
+      ? "Firebase data loaded. Live publishing still needs Buffer credentials."
+      : "Demo data is loaded until Firebase is seeded and connected."
   );
 
   const selectedCampaign = campaigns.find(
@@ -363,7 +368,9 @@ export function SocialDashboard({
         bufferPostId: `mock-buffer-${postId}`,
         externalUrl: "https://buffer.com"
       });
-      setNotice("Mock publish completed. Real Buffer publishing uses the API route.");
+      setNotice(
+        "Demo publish completed in this browser only. No social account was used."
+      );
     }, 700);
   }
 
@@ -391,7 +398,8 @@ export function SocialDashboard({
                 Social Engine
               </h1>
               <p className="mt-1 max-w-2xl text-sm text-stone-600">
-                Campaign calendar, approvals, scheduled publishing, and reporting.
+                Review dashboard for campaign planning, approvals, scheduled posts,
+                and reporting.
               </p>
             </div>
           </div>
@@ -410,13 +418,26 @@ export function SocialDashboard({
               </p>
             </div>
             <div className="rounded-md border border-mint/25 bg-mint/10 p-3 text-sm">
-              <div className="font-bold text-mint">Review mode</div>
+              <div className="font-bold text-mint">
+                {dataMode === "firebase" ? "Firebase mode" : "Demo mode"}
+              </div>
               <div className="text-xs text-stone-600">
-                {stats.readyChannels} / {channels.length} channels ready
+                {stats.readyChannels} / {channels.length} channels connected
               </div>
             </div>
           </div>
         </header>
+
+        <section className="rounded-lg border border-amber/30 bg-amber/10 p-4 text-sm text-graphite shadow-panel">
+          <strong className="text-ink">
+            {dataMode === "firebase" ? "Connected data" : "Review demo"}
+          </strong>
+          <span className="ml-2">
+            {dataMode === "firebase"
+              ? "The dashboard is reading Firestore records. Platform posting only becomes live after Buffer/channel credentials are added."
+              : "These posts, metrics, and channel statuses are examples. They show the workflow before real social accounts are connected."}
+          </span>
+        </section>
 
         <section className="grid gap-3 md:grid-cols-2 xl:grid-cols-4">
           {metrics.map((metric) => (
@@ -614,12 +635,12 @@ export function SocialDashboard({
                               )}
                               {post.status === "scheduled" && (
                                 <IconButton
-                                  title="Simulate publish"
+                                  title="Demo publish"
                                   onClick={() => simulatePublish(post.id)}
                                   variant="primary"
                                 >
                                   <Send className="h-4 w-4" />
-                                  Publish
+                                  Demo
                                 </IconButton>
                               )}
                               {post.status !== "published" &&
@@ -671,7 +692,7 @@ export function SocialDashboard({
                   }
                 >
                   <ShieldCheck className="h-4 w-4" />
-                  Unlock
+                  Check
                 </IconButton>
               </div>
               <div className="mt-4 grid grid-cols-3 gap-2 text-center">
@@ -824,7 +845,9 @@ export function SocialDashboard({
           <strong className="text-ink">Selected campaign:</strong>{" "}
           {selectedCampaign?.name ?? "None"}.
           <span className="ml-2">
-            Real publishing is handled by protected API routes and Vercel Cron.
+            Real publishing is handled by protected API routes and Vercel Cron
+            after Firebase Admin, Buffer credentials, and real channel IDs are
+            configured.
           </span>
         </footer>
       </div>

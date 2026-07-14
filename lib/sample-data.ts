@@ -15,7 +15,7 @@ export const channels: SocialChannel[] = [
     handle: "CrumbLabz",
     audience: "Founders, operators, hiring teams",
     cadence: "3 posts / week",
-    status: "ready"
+    status: "needs_auth"
   },
   {
     id: "instagram-main",
@@ -158,19 +158,19 @@ export const posts: SocialPost[] = [
 export const metrics: MetricSnapshot[] = [
   {
     label: "Approved this week",
-    value: "8",
-    change: "+3 vs plan",
+    value: "1",
+    change: "example data",
     tone: "good"
   },
   {
     label: "Scheduled coverage",
-    value: "11 days",
-    change: "target 14",
+    value: "1 post",
+    change: "example queue",
     tone: "watch"
   },
   {
-    label: "Ready channels",
-    value: "1 / 6",
+    label: "Connected accounts",
+    value: "0 / 6",
     change: "Buffer auth next",
     tone: "neutral"
   },

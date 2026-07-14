@@ -133,3 +133,4 @@ In production, Vercel calls the cron route on the schedule in `vercel.json`.
 - `docs/boss-brief.md`
 - `docs/deployment-checklist.md`
 - `docs/data-model.md`
+- `docs/tech-docs.html`
