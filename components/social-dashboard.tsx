@@ -9,6 +9,7 @@ import {
   Check,
   CheckCircle2,
   Clock3,
+  BookOpen,
   Globe2,
   Instagram,
   LayoutDashboard,
@@ -425,6 +426,16 @@ export function SocialDashboard({
                 {stats.readyChannels} / {channels.length} channels connected
               </div>
             </div>
+            <a
+              href="/tech-docs.html"
+              target="_blank"
+              rel="noreferrer"
+              title="Open technical documentation"
+              className="inline-flex h-11 items-center justify-center gap-2 rounded-md border border-stone-200 bg-white px-3 text-sm font-semibold text-graphite transition hover:border-stone-300 hover:bg-stone-50 sm:col-span-2"
+            >
+              <BookOpen className="h-4 w-4" />
+              Tech Docs
+            </a>
           </div>
         </header>
 
