@@ -129,6 +129,7 @@ In production, Vercel calls the cron route on the schedule in `vercel.json`.
 
 ## Docs
 
+- Live 90-day launch control page: `/launch-control`
 - `docs/beginner-step-by-step.md`
 - `docs/boss-brief.md`
 - `docs/deployment-checklist.md`

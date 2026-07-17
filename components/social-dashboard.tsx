@@ -11,6 +11,7 @@ import {
   Clock3,
   BookOpen,
   Globe2,
+  Flag,
   Instagram,
   LayoutDashboard,
   Linkedin,
@@ -405,37 +406,49 @@ export function SocialDashboard({
             </div>
           </div>
 
-          <div className="grid gap-3 sm:grid-cols-[1fr_auto] lg:min-w-[420px]">
-            <div className="rounded-md border border-stone-200 bg-paper p-3">
-              <div className="flex items-center gap-2 text-xs font-semibold uppercase text-stone-500">
-                <Clock3 className="h-4 w-4" />
-                Next post
+          <div className="grid gap-3 lg:min-w-[460px]">
+            <div className="grid gap-3 sm:grid-cols-[1fr_auto]">
+              <div className="rounded-md border border-stone-200 bg-paper p-3">
+                <div className="flex items-center gap-2 text-xs font-semibold uppercase text-stone-500">
+                  <Clock3 className="h-4 w-4" />
+                  Next post
+                </div>
+                <p className="mt-1 text-sm font-semibold text-ink">
+                  {nextPost ? nextPost.title : "No scheduled post"}
+                </p>
+                <p className="text-xs text-stone-500">
+                  {nextPost ? formatDate(nextPost.scheduledAt) : "Queue is empty"}
+                </p>
               </div>
-              <p className="mt-1 text-sm font-semibold text-ink">
-                {nextPost ? nextPost.title : "No scheduled post"}
-              </p>
-              <p className="text-xs text-stone-500">
-                {nextPost ? formatDate(nextPost.scheduledAt) : "Queue is empty"}
-              </p>
+              <div className="rounded-md border border-mint/25 bg-mint/10 p-3 text-sm">
+                <div className="font-bold text-mint">
+                  {dataMode === "firebase" ? "Firebase mode" : "Demo mode"}
+                </div>
+                <div className="text-xs text-stone-600">
+                  {stats.readyChannels} / {channels.length} channels connected
+                </div>
+              </div>
             </div>
-            <div className="rounded-md border border-mint/25 bg-mint/10 p-3 text-sm">
-              <div className="font-bold text-mint">
-                {dataMode === "firebase" ? "Firebase mode" : "Demo mode"}
-              </div>
-              <div className="text-xs text-stone-600">
-                {stats.readyChannels} / {channels.length} channels connected
-              </div>
+            <div className="grid gap-2 sm:grid-cols-2">
+              <a
+                href="/launch-control"
+                title="Open 90-day launch control"
+                className="inline-flex h-11 items-center justify-center gap-2 rounded-md border border-[#1E2A5E]/20 bg-[#1E2A5E] px-3 text-sm font-semibold text-white transition hover:bg-[#263875]"
+              >
+                <Flag className="h-4 w-4" />
+                Launch Control
+              </a>
+              <a
+                href="/tech-docs.html"
+                target="_blank"
+                rel="noreferrer"
+                title="Open technical documentation"
+                className="inline-flex h-11 items-center justify-center gap-2 rounded-md border border-stone-200 bg-white px-3 text-sm font-semibold text-graphite transition hover:border-stone-300 hover:bg-stone-50"
+              >
+                <BookOpen className="h-4 w-4" />
+                Tech Docs
+              </a>
             </div>
-            <a
-              href="/tech-docs.html"
-              target="_blank"
-              rel="noreferrer"
-              title="Open technical documentation"
-              className="inline-flex h-11 items-center justify-center gap-2 rounded-md border border-stone-200 bg-white px-3 text-sm font-semibold text-graphite transition hover:border-stone-300 hover:bg-stone-50 sm:col-span-2"
-            >
-              <BookOpen className="h-4 w-4" />
-              Tech Docs
-            </a>
           </div>
         </header>
 
