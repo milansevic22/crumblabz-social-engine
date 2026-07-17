@@ -22,9 +22,10 @@ export const channels: SocialChannel[] = [
     platform: "instagram",
     name: "Instagram",
     handle: "@crumblabz",
+    profileUrl: "https://www.instagram.com/crumblabz/",
     audience: "Builders, students, visual proof",
-    cadence: "4 posts / week",
-    status: "needs_auth"
+    cadence: "2 posts / week",
+    status: "ready"
   },
   {
     id: "tiktok-main",
@@ -170,9 +171,9 @@ export const metrics: MetricSnapshot[] = [
   },
   {
     label: "Connected accounts",
-    value: "0 / 6",
-    change: "Buffer auth next",
-    tone: "neutral"
+    value: "1 / 6",
+    change: "Instagram created",
+    tone: "good"
   },
   {
     label: "Posting health",

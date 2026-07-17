@@ -30,6 +30,7 @@ export type SocialChannel = {
   platform: Platform;
   name: string;
   handle: string;
+  profileUrl?: string;
   audience: string;
   cadence: string;
   status: "ready" | "needs_auth" | "manual_review";

@@ -10,6 +10,7 @@ import {
   CheckCircle2,
   Clock3,
   BookOpen,
+  FileText,
   Globe2,
   Flag,
   Instagram,
@@ -429,7 +430,7 @@ export function SocialDashboard({
                 </div>
               </div>
             </div>
-            <div className="grid gap-2 sm:grid-cols-2">
+            <div className="grid gap-2 sm:grid-cols-3">
               <a
                 href="/launch-control"
                 title="Open 90-day launch control"
@@ -437,6 +438,14 @@ export function SocialDashboard({
               >
                 <Flag className="h-4 w-4" />
                 Launch Control
+              </a>
+              <a
+                href="/content-pack"
+                title="Open copy-ready content pack"
+                className="inline-flex h-11 items-center justify-center gap-2 rounded-md border border-[#e87a2e]/25 bg-[#e87a2e] px-3 text-sm font-semibold text-white transition hover:bg-[#cf6821]"
+              >
+                <FileText className="h-4 w-4" />
+                Content Pack
               </a>
               <a
                 href="/tech-docs.html"
@@ -758,9 +767,20 @@ export function SocialDashboard({
                           </div>
                           <div>
                             <h3 className="text-sm font-bold">{channel.name}</h3>
-                            <p className="text-xs text-stone-500">
-                              {channel.handle}
-                            </p>
+                            {channel.profileUrl ? (
+                              <a
+                                href={channel.profileUrl}
+                                target="_blank"
+                                rel="noreferrer"
+                                className="text-xs font-semibold text-mint underline-offset-2 hover:underline"
+                              >
+                                {channel.handle}
+                              </a>
+                            ) : (
+                              <p className="text-xs text-stone-500">
+                                {channel.handle}
+                              </p>
+                            )}
                           </div>
                         </div>
                         <span

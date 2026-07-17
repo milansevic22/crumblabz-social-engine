@@ -18,6 +18,8 @@ The project follows the same CrumbLabz stack used previously:
 
 - Shows a social content dashboard with campaigns, channels, drafts, approvals,
   scheduled posts, and publishing status.
+- Includes a content pack page with profile copy, brand assets, draft posts,
+  UTM links, and a scheduler CSV export.
 - Runs in review mode without credentials by using sample data.
 - Includes protected API routes for seeding Firebase and publishing posts.
 - Includes a Vercel Cron route that can check for scheduled posts.
@@ -130,6 +132,8 @@ In production, Vercel calls the cron route on the schedule in `vercel.json`.
 ## Docs
 
 - Live 90-day launch control page: `/launch-control`
+- Live content pack page: `/content-pack`
+- Instagram profile: `https://www.instagram.com/crumblabz/`
 - `docs/beginner-step-by-step.md`
 - `docs/boss-brief.md`
 - `docs/deployment-checklist.md`
