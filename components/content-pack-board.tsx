@@ -9,6 +9,7 @@ import {
   Check,
   Clipboard,
   Download,
+  ExternalLink,
   FileText,
   Filter,
   Globe2,
@@ -323,12 +324,23 @@ export function ContentPackBoard({
         </section>
 
         <section className="rounded-lg border border-[#e87a2e]/25 bg-[#e87a2e]/10 p-4 text-sm text-graphite shadow-panel">
-          <strong className="text-ink">Account status:</strong>
-          <span className="ml-2">
-            Instagram has been created manually. LinkedIn is blocked by the
-            profile connection requirement, so it needs a boss or established
-            account to create the company page and add Milan as an admin.
-          </span>
+          <div className="flex flex-col gap-3 lg:flex-row lg:items-center lg:justify-between">
+            <div>
+              <strong className="text-ink">Account status:</strong>
+              <span className="ml-2">
+                Instagram is live. LinkedIn is blocked by the profile connection
+                requirement, so it needs a boss or established account to create
+                the company page and add Milan as an admin.
+              </span>
+            </div>
+            <a
+              href="/instagram-first-post"
+              className="inline-flex h-10 shrink-0 items-center justify-center gap-2 rounded-md border border-[#1E2A5E]/20 bg-[#1E2A5E] px-3 text-sm font-semibold text-white transition hover:bg-[#263875]"
+            >
+              <ExternalLink className="h-4 w-4" />
+              Review first post
+            </a>
+          </div>
         </section>
 
         <section className="grid gap-3 lg:grid-cols-3">

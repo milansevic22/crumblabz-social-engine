@@ -133,6 +133,7 @@ In production, Vercel calls the cron route on the schedule in `vercel.json`.
 
 - Live 90-day launch control page: `/launch-control`
 - Live content pack page: `/content-pack`
+- First Instagram draft review page: `/instagram-first-post`
 - Instagram profile: `https://www.instagram.com/crumblabz/`
 - `docs/beginner-step-by-step.md`
 - `docs/boss-brief.md`
