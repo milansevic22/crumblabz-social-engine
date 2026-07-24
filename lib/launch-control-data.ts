@@ -154,11 +154,11 @@ export const launchContentDrafts: LaunchContentDraft[] = [
     platform: "linkedin",
     format: "Text post",
     theme: "Positioning",
-    title: "Your spreadsheet is not the system",
+    title: "Still running key workflows by hand?",
     copy:
-      "Your spreadsheet is not the system. It is the symptom.\n\nThe real problem is usually the workflow behind it: scattered ownership, manual handoffs, slow reporting, and decisions waiting on someone to rebuild the truth by hand.\n\nCrumbLabz turns operational headaches into working tools.\n\nOne clear place for status.\nOne owner for the next action.\nOne useful version the team can click, review, and improve.\n\nTell us one workflow that feels slower than it should.",
+      "Still running a key workflow by hand?\n\nCrumbLabz builds custom tools for smarter operations.\n\nYou describe the problem. We design and build a working solution around the way your business actually runs, often in days, not months.\n\nManual data entry. Slow reporting. Disconnected tools. Repetitive admin. No visibility into the numbers that matter.\n\nStart with one problem. We will map it out and show what a solution could look like.\n\nTell us your headache.",
     assetDirection:
-      "Use the new Week 1 product-proof carousel opener or a cropped dashboard visual.",
+      "Use the website-inspired carousel opener or the delivered dashboard proof visual.",
     status: "Ready to review"
   },
   {
@@ -171,7 +171,7 @@ export const launchContentDrafts: LaunchContentDraft[] = [
     copy:
       "A working review link changes the conversation.\n\nInstead of debating an abstract idea, the team can click through the workflow, react to what is missing, and decide what should happen next.\n\nThat is why CrumbLabz favours fast MVPs over long planning cycles.\n\nGet the useful version live. Learn from it. Refine what matters.",
     assetDirection:
-      "Use the produced dashboard proof visual for review, then replace it with a real client-safe screenshot when available.",
+      "Use the website-inspired delivered dashboard proof visual for review, then replace it with a real client-safe screenshot when available.",
     status: "Ready to review"
   },
   {
@@ -204,12 +204,12 @@ export const launchContentDrafts: LaunchContentDraft[] = [
     week: "Week 1",
     platform: "instagram",
     format: "Carousel",
-    theme: "Product proof carousel",
-    title: "Your spreadsheet is not the system",
+    theme: "Website-inspired launch carousel",
+    title: "Still running key workflows by hand?",
     copy:
-      "Slide 1: Your spreadsheet is not the system. It is the symptom.\nSlide 2: The team is working hard, but the truth lives in too many places.\nSlide 3: One place to see status, ownership, and the next action.\nSlide 4: Describe it Monday. Use it Friday.\nSlide 5: Tell us one workflow that feels slower than it should.",
+      "Slide 1: Still running key workflows by hand?\nSlide 2: Everyday processes quietly drain time.\nSlide 3: Real tools, really shipped.\nSlide 4: From problem to solution in four steps.\nSlide 5: Start with one problem.",
     assetDirection:
-      "Five finished 1080x1080 carousel slides with product-style dashboard visuals and caption.",
+      "Five finished 1080x1080 carousel slides with official logo, warm site styling, dashboard proof, and caption.",
     status: "Ready to review"
   },
   {

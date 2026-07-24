@@ -11,47 +11,45 @@ import {
 
 const slides = [
   {
-    title: "Hook with product proof",
+    title: "Still running key workflows by hand?",
     src: "/instagram-first-post/crumblabz-first-post-slide-01.png"
   },
   {
-    title: "The scattered workflow",
+    title: "Everyday processes drain time",
     src: "/instagram-first-post/crumblabz-first-post-slide-02.png"
   },
   {
-    title: "The useful version",
+    title: "Real tools, really shipped",
     src: "/instagram-first-post/crumblabz-first-post-slide-03.png"
   },
   {
-    title: "Fast build process",
+    title: "Four-step process",
     src: "/instagram-first-post/crumblabz-first-post-slide-04.png"
   },
   {
-    title: "Clear CTA",
+    title: "Start with one problem",
     src: "/instagram-first-post/crumblabz-first-post-slide-05.png"
   }
 ];
 
-const caption = `Your spreadsheet is not the system. It is the symptom.
+const caption = `Still running a key workflow by hand?
 
-The real problem is usually the workflow behind it: scattered ownership, manual handoffs, slow reporting, and decisions waiting on someone to rebuild the truth by hand.
+CrumbLabz builds custom tools for smarter operations.
 
-CrumbLabz turns operational headaches into working tools.
+You describe the problem. We design and build a working solution around the way your business actually runs, often in days, not months.
 
-One clear place for status.
-One owner for the next action.
-One useful version the team can click, review, and improve.
+Manual data entry. Slow reporting. Disconnected tools. Repetitive admin. No visibility into the numbers that matter.
 
-Tell us one workflow that feels slower than it should.
+Start with one problem. We will map it out and show what a solution could look like.
 
-Business Optimization + AI
+Tell us your headache.
 
-#BusinessAutomation #AIForBusiness #Operations #WorkflowAutomation #BusinessOptimization #CustomSoftware #CrumbLabz`;
+#CustomSoftware #Operations #BusinessAutomation #WorkflowAutomation #AIForBusiness #CrumbLabz`;
 
 export const metadata: Metadata = {
   title: "First Instagram Post Review | CrumbLabz Social Engine",
   description:
-    "Review page for the first CrumbLabz Instagram product-proof carousel, including slides, caption, and downloadable assets."
+    "Review page for the first CrumbLabz website-inspired Instagram carousel, including slides, caption, and downloadable assets."
 };
 
 export default function InstagramFirstPostPage() {
@@ -61,19 +59,27 @@ export default function InstagramFirstPostPage() {
         <header className="rounded-lg border border-white/70 bg-white/85 p-4 shadow-panel backdrop-blur">
           <div className="flex flex-col gap-4 lg:flex-row lg:items-start lg:justify-between">
             <div className="flex items-start gap-3">
-              <div className="flex h-11 w-11 shrink-0 items-center justify-center rounded-lg bg-[#1E2A5E] text-white">
-                <Instagram className="h-5 w-5" />
+              <div className="shrink-0 rounded-xl bg-[#fffaf2] p-2.5">
+                <Image
+                  src="/brand/CrumbLabz_Signature.png"
+                  alt="CrumbLabz"
+                  width={160}
+                  height={34}
+                  className="h-auto w-40"
+                  priority
+                />
               </div>
               <div>
                 <p className="text-xs font-bold uppercase tracking-[0.18em] text-[#e87a2e]">
                   CrumbLabz Instagram
                 </p>
                 <h1 className="text-2xl font-bold tracking-0 text-ink sm:text-3xl">
-                  Product Proof Carousel
+                  Website-Inspired Launch Carousel
                 </h1>
                 <p className="mt-1 max-w-3xl text-sm text-stone-600">
-                  A rebuilt first post for Ryan review: stronger hook, visible
-                  product-style visuals, no draft stamp, and a clearer CTA.
+                  A rebuilt first post for Ryan review: official site logo,
+                  warm dark hero styling, dashboard proof, and website-matched
+                  messaging.
                 </p>
               </div>
             </div>
@@ -139,9 +145,9 @@ export default function InstagramFirstPostPage() {
         <section className="rounded-lg border border-[#e87a2e]/25 bg-[#e87a2e]/10 p-4 text-sm text-graphite shadow-panel">
           <strong className="text-ink">Review note:</strong>
           <span className="ml-2">
-            This version directly addresses the feedback: no draft stamp, a
-            pain-led hook, product visuals on the opener, and finished carousel
-            assets ready for approval.
+            This version directly addresses the design feedback: official
+            CrumbLabz logo, website-inspired styling, product proof visuals,
+            and finished carousel assets ready for approval.
           </span>
         </section>
 

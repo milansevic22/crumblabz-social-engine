@@ -76,6 +76,12 @@ const platformMeta: Record<
 
 const brandAssets = [
   {
+    title: "Signature Logo",
+    use: "Use this clean lockup for social graphics and review pages.",
+    href: "/brand/CrumbLabz_Signature.png",
+    imageClassName: "object-contain p-5"
+  },
+  {
     title: "Profile Icon",
     use: "Use for Instagram, X, and Facebook profile pictures.",
     href: "/brand/CrumbLabz_Instagram_Profile.png",
@@ -343,7 +349,7 @@ export function ContentPackBoard({
           </div>
         </section>
 
-        <section className="grid gap-3 lg:grid-cols-3">
+        <section className="grid gap-3 sm:grid-cols-2 lg:grid-cols-4">
           {brandAssets.map((asset) => (
             <article
               key={asset.title}

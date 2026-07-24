@@ -9,7 +9,6 @@ import {
   FileText,
   Instagram,
   Linkedin,
-  PackageCheck,
   ShieldCheck,
   Sparkles,
   Twitter
@@ -17,52 +16,52 @@ import {
 
 const slides = [
   {
-    title: "Hook with product proof",
-    note: "Leads with the pain Ryan called out and shows a working dashboard visual.",
+    title: "Still running key workflows by hand?",
+    note: "Website-inspired opener with the official lockup, warm dark hero treatment, and dashboard proof.",
     src: "/instagram-first-post/crumblabz-first-post-slide-01.png"
   },
   {
-    title: "The scattered workflow",
-    note: "Makes the problem concrete: inboxes, sheets, memory, and unclear owners.",
+    title: "Everyday processes drain time",
+    note: "Uses the live site's problem framing: manual entry, slow reporting, disconnected tools, and admin drag.",
     src: "/instagram-first-post/crumblabz-first-post-slide-02.png"
   },
   {
-    title: "The useful version",
-    note: "Shows the CrumbLabz answer: status, ownership, next action.",
+    title: "Real tools, really shipped",
+    note: "Mirrors the website's proof section with a clean delivered dashboard card.",
     src: "/instagram-first-post/crumblabz-first-post-slide-03.png"
   },
   {
-    title: "Fast build process",
-    note: "Connects to the stronger site positioning: describe it Monday, use it Friday.",
+    title: "Four-step process",
+    note: "Pulls directly from the site: Describe, Map, Build, Deploy.",
     src: "/instagram-first-post/crumblabz-first-post-slide-04.png"
   },
   {
-    title: "Clear CTA",
-    note: "Ends with one simple ask: tell us one slow workflow.",
+    title: "Start with one problem",
+    note: "Keeps the site CTA and makes the next action obvious.",
     src: "/instagram-first-post/crumblabz-first-post-slide-05.png"
   }
 ];
 
 const fixes = [
   {
-    title: "Removed the draft stamp",
+    title: "Swapped in the official site lockup",
     detail:
-      "The carousel now looks like a client-facing review asset, not an internal placeholder."
+      "The hand-drawn cookie mark is gone. The slides now use the clean CrumbLabz signature logo from the website assets."
   },
   {
-    title: "Added product-first visuals",
+    title: "Matched the website visual system",
     detail:
-      "The first and third slides now show produced dashboard visuals instead of describing an asset that is not there."
+      "The new version uses the warm dark hero background, cream cards, orange accent, and compact dashboard style from crumblabz.vercel.app."
   },
   {
-    title: "Rewrote the hook",
+    title: "Moved away from generic mockup UI",
     detail:
-      "The opener now starts with a specific operational pain, not a logo and slogan."
+      "The proof slides now reference the live site's Operations Dashboard, Delivered badge, and 248 / 14h / 98% metric structure."
   },
   {
-    title: "Focused on Week 1",
+    title: "Kept Week 1 shippable",
     detail:
-      "The page is built around one shippable post and one practical launch week, not a large unfinished backlog."
+      "The page is still centred on one polished carousel and one practical launch week, not a pile of unfinished ideas."
   }
 ];
 
@@ -71,10 +70,10 @@ const weekPlan = [
     day: "Mon",
     platform: "LinkedIn",
     Icon: Linkedin,
-    title: "Your spreadsheet is not the system",
+    title: "Still running key workflows by hand?",
     status: "Ready after LinkedIn page access",
     detail:
-      "Anchor post using the carousel hook as a text-led founder education piece."
+      "Anchor post using the same hook and website language as the carousel opener."
   },
   {
     day: "Tue",
@@ -98,10 +97,10 @@ const weekPlan = [
     day: "Thu",
     platform: "Instagram",
     Icon: Instagram,
-    title: "Product proof carousel",
+    title: "Website-inspired launch carousel",
     status: "Ready for Ryan review",
     detail:
-      "Five-slide carousel rebuilt with stronger hook, product visuals, caption, and asset downloads."
+      "Five-slide carousel rebuilt with the official logo, site styling, dashboard proof, caption, and asset downloads."
   },
   {
     day: "Fri",
@@ -114,19 +113,17 @@ const weekPlan = [
   }
 ];
 
-const caption = `Your spreadsheet is not the system. It is the symptom.
+const caption = `Still running a key workflow by hand?
 
-The real problem is usually the workflow behind it: scattered ownership, manual handoffs, slow reporting, and decisions waiting on someone to rebuild the truth by hand.
+CrumbLabz builds custom tools for smarter operations.
 
-CrumbLabz turns operational headaches into working tools.
+You describe the problem. We design and build a working solution around the way your business actually runs, often in days, not months.
 
-One clear place for status.
-One owner for the next action.
-One useful version the team can click, review, and improve.
+Manual data entry. Slow reporting. Disconnected tools. Repetitive admin. No visibility into the numbers that matter.
 
-Tell us one workflow that feels slower than it should.
+Start with one problem. We will map it out and show what a solution could look like.
 
-Business Optimization + AI`;
+Tell us your headache.`;
 
 export const metadata: Metadata = {
   title: "Week 1 Ship Room | CrumbLabz Social Engine",
@@ -138,30 +135,43 @@ export default function WeekOneShipRoomPage() {
   return (
     <main className="min-h-screen px-4 py-4 text-ink sm:px-6 lg:px-8">
       <div className="mx-auto flex max-w-7xl flex-col gap-5">
-        <header className="rounded-lg border border-white/70 bg-white/90 p-4 shadow-panel backdrop-blur">
+        <header
+          className="overflow-hidden rounded-2xl border border-white/10 bg-[#16140f] p-4 text-white shadow-panel backdrop-blur"
+          style={{
+            backgroundImage:
+              "radial-gradient(62% 80% at 78% 18%, rgba(232,122,46,.22), transparent 60%), radial-gradient(54% 64% at 12% 92%, rgba(212,97,46,.18), transparent 58%)"
+          }}
+        >
           <div className="flex flex-col gap-4 lg:flex-row lg:items-start lg:justify-between">
             <div className="flex items-start gap-3">
-              <div className="flex h-11 w-11 shrink-0 items-center justify-center rounded-lg bg-[#1E2A5E] text-white">
-                <PackageCheck className="h-5 w-5" />
+              <div className="shrink-0 rounded-xl bg-[#fffaf2] p-2.5">
+                <Image
+                  src="/brand/CrumbLabz_Signature.png"
+                  alt="CrumbLabz"
+                  width={160}
+                  height={34}
+                  className="h-auto w-40"
+                  priority
+                />
               </div>
               <div>
-                <p className="text-xs font-bold uppercase tracking-[0.18em] text-[#e87a2e]">
-                  Ryan review pass
+                <p className="text-xs font-bold uppercase tracking-[0.18em] text-[#f6b17a]">
+                  Website-inspired Ryan review pass
                 </p>
-                <h1 className="text-2xl font-bold tracking-0 text-ink sm:text-3xl">
+                <h1 className="text-2xl font-bold tracking-0 text-white sm:text-3xl">
                   Week 1 Ship Room
                 </h1>
-                <p className="mt-1 max-w-3xl text-sm leading-6 text-stone-600">
-                  A tighter version of the MVP: one finished carousel, real
-                  product-style visuals, a clear Week 1 posting plan, and the
-                  exact approval points needed before anything goes live.
+                <p className="mt-1 max-w-3xl text-sm leading-6 text-white/70">
+                  Rebuilt around the live CrumbLabz website: official lockup,
+                  warm dark hero styling, product dashboard proof, and a clear
+                  Week 1 posting plan.
                 </p>
               </div>
             </div>
             <div className="flex flex-col gap-2 sm:flex-row">
               <a
                 href="/"
-                className="inline-flex h-10 items-center justify-center gap-2 rounded-md border border-stone-200 bg-white px-3 text-sm font-semibold text-graphite transition hover:bg-stone-50"
+                className="inline-flex h-10 items-center justify-center gap-2 rounded-md border border-white/15 bg-white/10 px-3 text-sm font-semibold text-white transition hover:bg-white/15"
               >
                 <ArrowLeft className="h-4 w-4" />
                 Dashboard
@@ -238,9 +248,9 @@ export default function WeekOneShipRoomPage() {
               <p>
                 I took the feedback directly and rebuilt Week 1 instead of
                 adding more backlog. The main change is that the first post now
-                behaves like a real CrumbLabz proof asset: it opens on a pain,
-                shows a product-style dashboard, explains the workflow problem,
-                and ends with a simple CTA.
+                looks like it belongs with the live CrumbLabz site: official
+                logo, warm dark hero styling, clean dashboard proof, and a CTA
+                that matches the website.
               </p>
               <p className="mt-3">
                 The decision I need from Ryan is whether this is now close
@@ -277,7 +287,7 @@ export default function WeekOneShipRoomPage() {
               <div className="flex items-center gap-2">
                 <Instagram className="h-5 w-5 text-[#b51f66]" />
                 <h2 className="text-lg font-bold text-ink">
-                  Post 1: Product Proof Carousel
+                  Post 1: Website-Inspired Launch Carousel
                 </h2>
               </div>
               <p className="mt-1 text-sm text-stone-600">
