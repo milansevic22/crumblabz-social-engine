@@ -1,13 +1,16 @@
-Still running a key workflow by hand?
+Custom tools for smarter operations.
 
-CrumbLabz builds custom tools for smarter operations.
+Most businesses do not need another giant platform.
+They need the right tool around the workflow that is slowing them down.
 
-You describe the problem. We design and build a working solution around the way your business actually runs, often in days, not months.
+CrumbLabz turns operational headaches into working software:
+- dashboards that replace manual reporting
+- approval flows that stop work getting lost
+- trackers that make ownership clear
+- automations that remove repetitive admin
 
-Manual data entry. Slow reporting. Disconnected tools. Repetitive admin. No visibility into the numbers that matter.
-
-Start with one problem. We will map it out and show what a solution could look like.
+You describe the problem. We design and build a working solution, often in days, not months.
 
 Tell us your headache.
 
-#CustomSoftware #Operations #BusinessAutomation #WorkflowAutomation #AIForBusiness #CrumbLabz
+#CustomSoftware #Operations #BusinessAutomation #WorkflowAutomation #Dashboards #CrumbLabz

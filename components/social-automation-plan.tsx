@@ -139,13 +139,15 @@ const posts: ContentPost[] = [
     id: "brand-opener",
     category: "Brand opener",
     number: "1 / 12",
-    title: "Still running key workflows by hand?",
+    title: "Custom tools for smarter operations",
     copy:
-      "Still running a key workflow by hand?\n\nCrumbLabz builds custom tools for smarter operations.\n\nYou describe the problem. We design and build a working solution around the way your business actually runs, often in days, not months.\n\nStart with one problem. We will map it out and show what a solution could look like.",
+      "Most businesses do not need another giant platform.\n\nThey need the right tool around the workflow that is slowing them down.\n\nCrumbLabz turns operational headaches into working software: dashboards that replace manual reporting, approval flows that stop work getting lost, trackers that make ownership clear, and automations that remove repetitive admin.\n\nYou describe the problem. We design and build a working solution, often in days, not months.\n\nTell us your headache.",
     hashtags: [
       "#CustomSoftware",
       "#Operations",
       "#BusinessAutomation",
+      "#WorkflowAutomation",
+      "#Dashboards",
       "#CrumbLabz"
     ],
     platforms: ["Instagram", "LinkedIn"],
@@ -179,7 +181,7 @@ const posts: ContentPost[] = [
     number: "2 / 12",
     title: "Real tools, really shipped",
     copy:
-      "A working dashboard changes the conversation.\n\nInstead of another spreadsheet, another status chase, or another \"who owns this?\" message, the team gets one place to see what is happening.\n\nThat is the CrumbLabz lane: practical tools that make operations easier to run.",
+      "The first post should not feel like generic social content.\n\nIt now pulls directly from the website's proof layer: campaign trackers, billing approval queues, and operations dashboards.\n\nThat is the CrumbLabz lane: practical tools that make operations easier to run.",
     hashtags: ["#Operations", "#Dashboards", "#WorkflowAutomation"],
     platforms: ["LinkedIn", "Instagram"],
     status: "Ready",

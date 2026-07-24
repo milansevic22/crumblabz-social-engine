@@ -154,11 +154,11 @@ export const launchContentDrafts: LaunchContentDraft[] = [
     platform: "linkedin",
     format: "Text post",
     theme: "Positioning",
-    title: "Still running key workflows by hand?",
+    title: "Custom tools for smarter operations",
     copy:
-      "Still running a key workflow by hand?\n\nCrumbLabz builds custom tools for smarter operations.\n\nYou describe the problem. We design and build a working solution around the way your business actually runs, often in days, not months.\n\nManual data entry. Slow reporting. Disconnected tools. Repetitive admin. No visibility into the numbers that matter.\n\nStart with one problem. We will map it out and show what a solution could look like.\n\nTell us your headache.",
+      "Custom tools for smarter operations.\n\nMost businesses do not need another giant platform.\n\nThey need the right tool around the workflow that is slowing them down.\n\nCrumbLabz turns operational headaches into working software: dashboards that replace manual reporting, approval flows that stop work getting lost, trackers that make ownership clear, and automations that remove repetitive admin.\n\nYou describe the problem. We design and build a working solution, often in days, not months.\n\nTell us your headache.",
     assetDirection:
-      "Use the website-inspired carousel opener or the delivered dashboard proof visual.",
+      "Use the polished website-inspired launch carousel with product-preview proof cards.",
     status: "Ready to review"
   },
   {
@@ -205,11 +205,11 @@ export const launchContentDrafts: LaunchContentDraft[] = [
     platform: "instagram",
     format: "Carousel",
     theme: "Website-inspired launch carousel",
-    title: "Still running key workflows by hand?",
+    title: "Custom tools for smarter operations",
     copy:
-      "Slide 1: Still running key workflows by hand?\nSlide 2: Everyday processes quietly drain time.\nSlide 3: Real tools, really shipped.\nSlide 4: From problem to solution in four steps.\nSlide 5: Start with one problem.",
+      "Slide 1: Custom tools for smarter operations.\nSlide 2: Where good businesses lose time.\nSlide 3: Real tools, really shipped.\nSlide 4: Describe it Monday. Use it Friday.\nSlide 5: Start with one operational headache.",
     assetDirection:
-      "Five finished 1080x1080 carousel slides with official logo, warm site styling, dashboard proof, and caption.",
+      "Five finished 1080x1080 carousel slides with official logo, warm site styling, website portfolio proof cards, and caption.",
     status: "Ready to review"
   },
   {

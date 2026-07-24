@@ -11,11 +11,11 @@ import {
 
 const slides = [
   {
-    title: "Still running key workflows by hand?",
+    title: "Custom tools for smarter operations",
     src: "/instagram-first-post/crumblabz-first-post-slide-01.png"
   },
   {
-    title: "Everyday processes drain time",
+    title: "Where businesses lose time",
     src: "/instagram-first-post/crumblabz-first-post-slide-02.png"
   },
   {
@@ -23,28 +23,31 @@ const slides = [
     src: "/instagram-first-post/crumblabz-first-post-slide-03.png"
   },
   {
-    title: "Four-step process",
+    title: "Describe Monday, use Friday",
     src: "/instagram-first-post/crumblabz-first-post-slide-04.png"
   },
   {
-    title: "Start with one problem",
+    title: "Start with one headache",
     src: "/instagram-first-post/crumblabz-first-post-slide-05.png"
   }
 ];
 
-const caption = `Still running a key workflow by hand?
+const caption = `Custom tools for smarter operations.
 
-CrumbLabz builds custom tools for smarter operations.
+Most businesses do not need another giant platform.
+They need the right tool around the workflow that is slowing them down.
 
-You describe the problem. We design and build a working solution around the way your business actually runs, often in days, not months.
+CrumbLabz turns operational headaches into working software:
+- dashboards that replace manual reporting
+- approval flows that stop work getting lost
+- trackers that make ownership clear
+- automations that remove repetitive admin
 
-Manual data entry. Slow reporting. Disconnected tools. Repetitive admin. No visibility into the numbers that matter.
-
-Start with one problem. We will map it out and show what a solution could look like.
+You describe the problem. We design and build a working solution, often in days, not months.
 
 Tell us your headache.
 
-#CustomSoftware #Operations #BusinessAutomation #WorkflowAutomation #AIForBusiness #CrumbLabz`;
+#CustomSoftware #Operations #BusinessAutomation #WorkflowAutomation #Dashboards #CrumbLabz`;
 
 export const metadata: Metadata = {
   title: "First Instagram Post Review | CrumbLabz Social Engine",
@@ -59,16 +62,14 @@ export default function InstagramFirstPostPage() {
         <header className="rounded-lg border border-white/70 bg-white/85 p-4 shadow-panel backdrop-blur">
           <div className="flex flex-col gap-4 lg:flex-row lg:items-start lg:justify-between">
             <div className="flex items-start gap-3">
-              <div className="shrink-0 rounded-xl bg-[#fffaf2] p-2.5">
-                <Image
-                  src="/brand/CrumbLabz_Signature.png"
-                  alt="CrumbLabz"
-                  width={160}
-                  height={34}
-                  className="h-auto w-40"
-                  priority
-                />
-              </div>
+              <Image
+                src="/brand/CrumbLabz_Signature.png"
+                alt="CrumbLabz"
+                width={176}
+                height={37}
+                className="mt-1 h-auto w-44 shrink-0"
+                priority
+              />
               <div>
                 <p className="text-xs font-bold uppercase tracking-[0.18em] text-[#e87a2e]">
                   CrumbLabz Instagram
@@ -78,8 +79,9 @@ export default function InstagramFirstPostPage() {
                 </h1>
                 <p className="mt-1 max-w-3xl text-sm text-stone-600">
                   A launch-ready asset for the CrumbLabz social automation
-                  plan: official site logo, warm dark hero styling, dashboard
-                  proof, and website-matched messaging.
+                  plan: official site logo, warm website styling, real
+                  portfolio-style product previews, and website-matched
+                  messaging.
                 </p>
               </div>
             </div>
