@@ -432,12 +432,12 @@ export function SocialDashboard({
             </div>
             <div className="grid gap-2 sm:grid-cols-2 lg:grid-cols-4">
               <a
-                href="/week-1-ship-room"
-                title="Open the polished Week 1 Ryan review page"
+                href="/social-automation-plan"
+                title="Open the polished social automation plan"
                 className="inline-flex h-11 items-center justify-center gap-2 rounded-md border border-mint/25 bg-mint px-3 text-sm font-semibold text-white transition hover:bg-mint/90"
               >
                 <Sparkles className="h-4 w-4" />
-                Ship Room
+                Social Plan
               </a>
               <a
                 href="/launch-control"

@@ -182,7 +182,7 @@ export const launchContentDrafts: LaunchContentDraft[] = [
     theme: "Founder education",
     title: "Small tools can create big impact",
     copy:
-      "Not every operational problem needs a giant platform.\n\nSometimes the highest-value tool is small:\n\n- a dashboard that replaces a weekly manual report\n- a tracker that keeps every follow-up in one place\n- an approval queue that stops work getting lost\n- a document generator that turns meeting notes into usable next steps\n\nSmall tools work when they remove a real point of friction.",
+      "Not every operational problem needs a giant platform.\n\nSometimes the highest-value tool is small:\n\n- a dashboard that replaces a weekly manual report\n- a tracker that keeps every follow-up in one place\n- an approval queue that stops work getting lost\n- a document generator that turns call notes into usable next steps\n\nSmall tools work when they remove a real point of friction.",
     assetDirection:
       "Text-only post or a four-tile graphic showing examples of small tools.",
     status: "Ready to review"

@@ -340,11 +340,11 @@ export function ContentPackBoard({
               </span>
             </div>
             <a
-              href="/week-1-ship-room"
+              href="/social-automation-plan"
               className="inline-flex h-10 shrink-0 items-center justify-center gap-2 rounded-md border border-[#1E2A5E]/20 bg-[#1E2A5E] px-3 text-sm font-semibold text-white transition hover:bg-[#263875]"
             >
               <ExternalLink className="h-4 w-4" />
-              Open ship room
+              Open social plan
             </a>
           </div>
         </section>

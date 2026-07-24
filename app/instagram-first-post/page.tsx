@@ -77,9 +77,9 @@ export default function InstagramFirstPostPage() {
                   Website-Inspired Launch Carousel
                 </h1>
                 <p className="mt-1 max-w-3xl text-sm text-stone-600">
-                  A rebuilt first post for Ryan review: official site logo,
-                  warm dark hero styling, dashboard proof, and website-matched
-                  messaging.
+                  A launch-ready asset for the CrumbLabz social automation
+                  plan: official site logo, warm dark hero styling, dashboard
+                  proof, and website-matched messaging.
                 </p>
               </div>
             </div>
@@ -92,11 +92,11 @@ export default function InstagramFirstPostPage() {
                 Content Pack
               </a>
               <a
-                href="/week-1-ship-room"
+                href="/social-automation-plan"
                 className="inline-flex h-10 items-center justify-center gap-2 rounded-md border border-[#1E2A5E]/20 bg-[#1E2A5E] px-3 text-sm font-semibold text-white transition hover:bg-[#263875]"
               >
                 <PackageCheck className="h-4 w-4" />
-                Ship Room
+                Social Plan
               </a>
               <a
                 href="https://www.instagram.com/crumblabz/"
@@ -116,7 +116,7 @@ export default function InstagramFirstPostPage() {
             {
               label: "Status",
               value: "Review",
-              detail: "Ready for Ryan feedback"
+              detail: "Ready for internal approval"
             },
             {
               label: "Format",
