@@ -158,7 +158,7 @@ export const launchContentDrafts: LaunchContentDraft[] = [
     copy:
       "Describe it Monday. Use it Friday.\n\nCustom operations software for real businesses, designed and shipped in days. One problem at a time.\n\nEvery business has a process that quietly eats hours. CrumbLabz builds focused tools for the workflows that slow teams down: manual data entry, slow reporting, disconnected tools, slow customer response, repetitive admin tasks, and no visibility into data.\n\nTell us your headache.",
     assetDirection:
-      "Use the website screenshot launch carousel built from the live homepage hero, dashboard proof, pain-point section, proof cards, one-week process, and CTA.",
+      "Use the native Instagram launch carousel built from CrumbLabz website colours, logo, sky asset, product UI cues, proof points, approval workflow, and CTA.",
     status: "Ready to review"
   },
   {
@@ -171,7 +171,7 @@ export const launchContentDrafts: LaunchContentDraft[] = [
     copy:
       "A working review link changes the conversation.\n\nInstead of debating an abstract idea, the team can click through the workflow, react to what is missing, and decide what should happen next.\n\nThat is why CrumbLabz favours fast MVPs over long planning cycles.\n\nGet the useful version live. Learn from it. Refine what matters.",
     assetDirection:
-      "Use the live website proof section for review, then replace it with a real client-safe screenshot when available.",
+      "Use the native proof slide for review, then replace it with a real client-safe screenshot when available.",
     status: "Ready to review"
   },
   {
@@ -207,9 +207,9 @@ export const launchContentDrafts: LaunchContentDraft[] = [
     theme: "Website-inspired launch carousel",
     title: "Describe it Monday. Use it Friday.",
     copy:
-      "Slide 1: Describe it Monday. Use it Friday.\nSlide 2: The work becomes visible.\nSlide 3: Every business has a process that quietly eats hours.\nSlide 4: Real tools, really shipped.\nSlide 5: From headache to working tool in one week.\nSlide 6: Tell us your headache.",
+      "Slide 1: Describe it Monday. Use it Friday.\nSlide 2: Your ops are leaking hours.\nSlide 3: One workflow. One useful tool.\nSlide 4: Real tools, really shipped.\nSlide 5: From headache to working tool.\nSlide 6: Automation with approval built in.\nSlide 7: Tell us your headache.",
     assetDirection:
-      "Six finished 1080x1080 carousel slides using exact captured visuals from the live CrumbLabz homepage.",
+      "Seven finished 1080x1080 carousel slides designed for Instagram using CrumbLabz website assets and product-style UI fragments.",
     status: "Ready to review"
   },
   {

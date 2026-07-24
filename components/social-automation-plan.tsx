@@ -2,291 +2,209 @@
 
 import { useState } from "react";
 import Image from "next/image";
+import Link from "next/link";
 import clsx from "clsx";
 import {
   AlertTriangle,
-  Archive,
+  BarChart3,
   Bot,
-  CalendarDays,
+  CalendarClock,
   Check,
   CheckCircle2,
   Clipboard,
   Download,
   ExternalLink,
-  Facebook,
-  Grid2X2,
+  FileCheck2,
   ImageIcon,
   Instagram,
   Linkedin,
-  Plus,
-  RefreshCw,
+  Lock,
+  MessageSquareText,
+  Radio,
   Send,
+  Settings2,
   ShieldCheck,
   Sparkles,
-  Twitter
+  UploadCloud
 } from "lucide-react";
 import type { LucideIcon } from "lucide-react";
 
-type ContentPost = {
+type QueueStatus = "Ready for review" | "Needs account" | "Needs approval" | "Scheduler next";
+
+type QueuePost = {
   id: string;
-  category: string;
-  number: string;
+  date: string;
+  channel: string;
+  format: string;
   title: string;
   copy: string;
-  hashtags: string[];
-  platforms: string[];
-  status: "Ready" | "Needs account" | "Needs screenshot" | "Scheduler next";
-  assets: Array<{ src: string; alt: string }>;
-  suggested?: string;
+  status: QueueStatus;
+  asset: string;
+  assetAlt: string;
 };
 
+type ChannelStatus = "Ready" | "Blocked" | "Next";
+
+const carouselSlides = Array.from({ length: 7 }, (_, index) => ({
+  src: `/instagram-first-post/crumblabz-native-carousel-${String(index + 1).padStart(2, "0")}.png`,
+  alt: `CrumbLabz native Instagram carousel slide ${index + 1}`
+}));
+
 const navItems: Array<{ label: string; Icon: LucideIcon; active?: boolean }> = [
-  { label: "Channel Setup", Icon: Grid2X2 },
-  { label: "Content Strategy", Icon: Sparkles },
-  { label: "Content Calendar", Icon: CalendarDays, active: true },
-  { label: "Asset Library", Icon: ImageIcon },
-  { label: "Automation Flow", Icon: Bot }
+  { label: "Command Center", Icon: Radio, active: true },
+  { label: "Content Queue", Icon: MessageSquareText },
+  { label: "Approvals", Icon: FileCheck2 },
+  { label: "Scheduler", Icon: CalendarClock },
+  { label: "Reporting", Icon: BarChart3 },
+  { label: "Settings", Icon: Settings2 }
 ];
 
-const stats = [
-  {
-    label: "Content prepared",
-    value: "12",
-    detail: "Week 1 captions and carousel assets"
-  },
-  {
-    label: "Primary channel",
-    value: "Instagram",
-    detail: "@crumblabz created"
-  },
-  {
-    label: "Automation stage",
-    value: "Approval",
-    detail: "Posting tokens still required"
-  },
-  {
-    label: "Next connection",
-    value: "Buffer",
-    detail: "Scheduler and platform bridge"
-  }
+const metrics = [
+  { label: "Launch pack", value: "7 slides", detail: "Native Instagram carousel" },
+  { label: "Posts drafted", value: "12", detail: "Week 1 and Week 2 queue" },
+  { label: "Live channel", value: "@crumblabz", detail: "Instagram account created" },
+  { label: "Automation mode", value: "Approval", detail: "No autoposting without tokens" }
 ];
 
-const channels = [
+const channels: Array<{
+  name: string;
+  handle: string;
+  Icon: LucideIcon;
+  status: ChannelStatus;
+  detail: string;
+}> = [
   {
     name: "Instagram",
     handle: "@crumblabz",
-    status: "Account created",
-    detail: "Ready for profile polish and first approved post.",
     Icon: Instagram,
-    tone: "ready"
+    status: "Ready",
+    detail: "Ready for profile polish, first post approval, and Meta scheduling."
   },
   {
     name: "LinkedIn",
-    handle: "CrumbLabz Company Page",
-    status: "Needs admin access",
-    detail: "Company page requires an eligible LinkedIn profile connection.",
+    handle: "CrumbLabz company page",
     Icon: Linkedin,
-    tone: "blocked"
+    status: "Blocked",
+    detail: "Needs eligible admin profile or page owner before posting can start."
   },
   {
-    name: "Facebook",
-    handle: "CrumbLabz Page",
-    status: "Optional next",
-    detail: "Useful once Meta Business Suite is set up.",
-    Icon: Facebook,
-    tone: "next"
+    name: "Scheduler",
+    handle: "Buffer or Meta Business Suite",
+    Icon: CalendarClock,
+    status: "Next",
+    detail: "Connect after account ownership is confirmed."
   },
   {
-    name: "X",
-    handle: "@crumblabz",
-    status: "Reserve next",
-    detail: "Short proof snippets and repurposed LinkedIn ideas.",
-    Icon: Twitter,
-    tone: "next"
+    name: "Publishing API",
+    handle: "Protected server route",
+    Icon: Lock,
+    status: "Next",
+    detail: "Vercel secrets and platform tokens required before real posting."
   }
 ];
 
-const automationSteps = [
+const workflow = [
   {
-    title: "Plan",
-    detail: "Campaign themes, captions, assets, and status live in this app.",
+    title: "Brief",
+    detail: "Capture theme, platform, audience, CTA, and asset direction.",
     state: "Ready"
   },
   {
-    title: "Approve",
-    detail: "Bosses choose what is safe to post before anything is scheduled.",
+    title: "Draft",
+    detail: "Create captions and carousel copy in a consistent brand voice.",
+    state: "Ready"
+  },
+  {
+    title: "Review",
+    detail: "Bosses approve wording, visual, timing, and risk before scheduling.",
     state: "Manual"
   },
   {
     title: "Schedule",
-    detail: "Buffer or Meta Business Suite receives approved content.",
+    detail: "Approved posts move into Buffer or Meta Business Suite.",
     state: "Next"
   },
   {
-    title: "Publish",
-    detail: "Protected API routes can post after account tokens are added.",
-    state: "Pending tokens"
-  },
-  {
     title: "Report",
-    detail: "UTM links and weekly results show what content is working.",
+    detail: "Track reach, clicks, engagement, and useful inbound conversations.",
     state: "Planned"
   }
 ];
 
-const posts: ContentPost[] = [
+const queue: QueuePost[] = [
   {
-    id: "brand-opener",
-    category: "Brand opener",
-    number: "1 / 12",
+    id: "launch-carousel",
+    date: "Today",
+    channel: "Instagram + LinkedIn",
+    format: "Carousel",
     title: "Describe it Monday. Use it Friday.",
     copy:
-      "CrumbLabz turns operational headaches into working tools: dashboards, approval queues, outreach systems, reporting flows, and small internal software that saves real hours.\n\nStart with one slow process. We map it, build the useful version, and get it in front of the team fast.\n\nTell us your headache.",
-    hashtags: [
-      "#CustomSoftware",
-      "#Operations",
-      "#WorkflowAutomation",
-      "#BusinessAutomation",
-      "#CrumbLabz"
-    ],
-    platforms: ["Instagram", "LinkedIn"],
-    status: "Ready",
-    assets: [
-      {
-        src: "/instagram-first-post/crumblabz-website-v2-carousel-01.png",
-        alt: "Carousel slide 1"
-      },
-      {
-        src: "/instagram-first-post/crumblabz-website-v2-carousel-02.png",
-        alt: "Carousel slide 2"
-      },
-      {
-        src: "/instagram-first-post/crumblabz-website-v2-carousel-03.png",
-        alt: "Carousel slide 3"
-      },
-      {
-        src: "/instagram-first-post/crumblabz-website-v2-carousel-04.png",
-        alt: "Carousel slide 4"
-      },
-      {
-        src: "/instagram-first-post/crumblabz-website-v2-carousel-05.png",
-        alt: "Carousel slide 5"
-      },
-      {
-        src: "/instagram-first-post/crumblabz-website-v2-carousel-06.png",
-        alt: "Carousel slide 6"
-      }
-    ]
-  },
-  {
-    id: "real-tools",
-    category: "Proof",
-    number: "2 / 12",
-    title: "Real tools, really shipped",
-    copy:
-      "The first post now follows the live website instead of trying to invent a separate social look.\n\nIt uses the homepage promise, real dashboard proof, the process-pain section, shipped-work proof, and the existing CTA.\n\nThat is the right first impression for CrumbLabz: simple, practical, and connected to the site.",
-    hashtags: ["#Operations", "#Dashboards", "#WorkflowAutomation"],
-    platforms: ["LinkedIn", "Instagram"],
-    status: "Ready",
-    assets: [
-      {
-        src: "/instagram-first-post/crumblabz-website-v2-carousel-04.png",
-        alt: "Dashboard proof slide"
-      }
-    ]
+      "CrumbLabz builds practical operations software for real businesses - dashboards, approval queues, reporting flows, outreach systems, and internal tools that remove the repetitive work.\n\nStart with one slow workflow. We map it, build the useful version, get it approved, and ship it fast.\n\nTell us your headache.\n\n#CustomSoftware #Operations #WorkflowAutomation #BusinessAutomation #CrumbLabz",
+    status: "Ready for review",
+    asset: "/instagram-first-post/crumblabz-native-carousel-01.png",
+    assetAlt: "Native CrumbLabz launch carousel"
   },
   {
     id: "manual-entry",
-    category: "Problem",
-    number: "3 / 12",
-    title: "Manual data entry is expensive",
+    date: "Week 1",
+    channel: "LinkedIn",
+    format: "Text post",
+    title: "Manual data entry is not harmless",
     copy:
-      "Manual data entry rarely looks urgent.\n\nBut it adds up: repeated fields, copied numbers, missed updates, stale reports, and time spent checking whether the latest version is actually the latest version.\n\nA small tool can remove that friction without replacing the whole business system.",
-    hashtags: ["#BusinessAutomation", "#AdminAutomation", "#Operations"],
-    platforms: ["LinkedIn", "X"],
-    status: "Ready",
-    assets: [
-      {
-        src: "/instagram-first-post/crumblabz-website-v2-carousel-03.png",
-        alt: "Problem list slide"
-      }
-    ]
+      "Manual data entry rarely looks urgent, but it quietly slows the business down.\n\nRepeated fields, copied numbers, stale reports, and missed updates all add up. A small internal tool can remove that friction without replacing every system.",
+    status: "Needs approval",
+    asset: "/instagram-first-post/crumblabz-native-carousel-02.png",
+    assetAlt: "Operational pain point slide"
   },
   {
-    id: "process",
-    category: "How it works",
-    number: "4 / 12",
-    title: "Describe. Map. Build. Deploy.",
+    id: "approval-system",
+    date: "Week 1",
+    channel: "Instagram Story",
+    format: "Proof snippet",
+    title: "Automation with approval built in",
     copy:
-      "The CrumbLabz process is deliberately simple.\n\nDescribe the broken process.\nMap what should happen.\nBuild the first useful version.\nDeploy it and improve from real usage.\n\nNo giant transformation plan needed. Start with one workflow.",
-    hashtags: ["#CustomSoftware", "#MVP", "#BusinessTools"],
-    platforms: ["Instagram", "LinkedIn"],
-    status: "Ready",
-    assets: [
-      {
-        src: "/instagram-first-post/crumblabz-website-v2-carousel-05.png",
-        alt: "Process slide"
-      }
-    ]
-  },
-  {
-    id: "site-proof",
-    category: "Website proof",
-    number: "5 / 12",
-    title: "Tie social back to the website",
-    copy:
-      "Every post should point back to the same clear offer:\n\nCustom operations software for real businesses.\nDesigned and shipped in days.\nOne problem at a time.\n\nSocial should not feel separate from the website. It should repeat and prove the same message.",
-    hashtags: ["#BrandStrategy", "#B2BMarketing", "#CrumbLabz"],
-    platforms: ["LinkedIn"],
-    status: "Needs screenshot",
-    suggested: "Attach one current website screenshot or one real dashboard crop.",
-    assets: []
-  },
-  {
-    id: "scheduler",
-    category: "Automation",
-    number: "6 / 12",
-    title: "What gets automated",
-    copy:
-      "The useful automation is not random posting.\n\nThe useful system is: draft ideas, review copy, attach the right asset, approve the post, schedule it, and track what happened.\n\nThat keeps the brand safe while removing the repeated admin.",
-    hashtags: ["#SocialMediaAutomation", "#MarketingOps", "#Workflow"],
-    platforms: ["LinkedIn", "Facebook"],
+      "Useful social automation is not random posting. It is a controlled workflow: idea, draft, asset, approval, schedule, report. Nothing goes live until the team approves it.",
     status: "Scheduler next",
-    suggested: "Connect Buffer once platform accounts are confirmed.",
-    assets: [
-      {
-        src: "/brand/CrumbLabz_Signature.png",
-        alt: "CrumbLabz logo"
-      }
-    ]
+    asset: "/instagram-first-post/crumblabz-native-carousel-06.png",
+    assetAlt: "Automation with approval slide"
   }
 ];
 
-function statusClasses(status: ContentPost["status"]) {
+const guardrails = [
+  "No live posting until Ryan or the team approves the post.",
+  "No fake case studies, inflated numbers, or invented clients.",
+  "Every outbound post links back to the same website offer.",
+  "Weekly reporting separates vanity metrics from useful conversations."
+];
+
+function channelStatusClasses(status: ChannelStatus) {
   if (status === "Ready") {
     return "border-emerald-200 bg-emerald-50 text-emerald-700";
   }
-
-  if (status === "Needs screenshot") {
+  if (status === "Blocked") {
     return "border-amber-200 bg-amber-50 text-amber-700";
   }
+  return "border-slate-200 bg-slate-50 text-slate-700";
+}
 
+function queueStatusClasses(status: QueueStatus) {
+  if (status === "Ready for review") {
+    return "border-emerald-200 bg-emerald-50 text-emerald-700";
+  }
   if (status === "Needs account") {
     return "border-red-200 bg-red-50 text-red-700";
   }
-
-  return "border-[#e87a2e]/25 bg-[#e87a2e]/10 text-[#c75f18]";
+  if (status === "Needs approval") {
+    return "border-amber-200 bg-amber-50 text-amber-700";
+  }
+  return "border-[#f2d4bd] bg-[#fff4e9] text-[#b85500]";
 }
 
-function buildPostText(post: ContentPost) {
-  return `${post.title}\n\n${post.copy}\n\n${post.hashtags.join(" ")}`;
-}
-
-function CopyButton({ post }: { post: ContentPost }) {
+function CopyButton({ post }: { post: QueuePost }) {
   const [copied, setCopied] = useState(false);
 
   async function copyPost() {
-    await navigator.clipboard.writeText(buildPostText(post));
+    await navigator.clipboard.writeText(`${post.title}\n\n${post.copy}`);
     setCopied(true);
     window.setTimeout(() => setCopied(false), 1400);
   }
@@ -295,97 +213,46 @@ function CopyButton({ post }: { post: ContentPost }) {
     <button
       type="button"
       onClick={copyPost}
-      className="inline-flex h-9 items-center justify-center gap-2 rounded-md border border-[#cdd8ea] bg-white px-3 text-sm font-semibold text-[#4f84c4] transition hover:border-[#9eb9dd] hover:bg-[#f7fbff]"
+      className="inline-flex h-9 items-center justify-center gap-2 rounded-md border border-[#d9e0ea] bg-white px-3 text-sm font-semibold text-[#344051] transition hover:bg-[#f7f8f4]"
     >
-      {copied ? (
-        <Check className="h-4 w-4 text-emerald-600" />
-      ) : (
-        <Clipboard className="h-4 w-4" />
-      )}
-      {copied ? "Copied" : "Copy caption"}
+      {copied ? <Check className="h-4 w-4 text-emerald-600" /> : <Clipboard className="h-4 w-4" />}
+      {copied ? "Copied" : "Copy"}
     </button>
   );
 }
 
-function ContentCard({ post }: { post: ContentPost }) {
+function QueueCard({ post }: { post: QueuePost }) {
   return (
-    <article className="rounded-2xl border border-[#d9e0ea] bg-white p-6 shadow-sm">
-      <div className="flex items-start justify-between gap-4">
-        <span className="rounded-full bg-[#eef3f9] px-3 py-1 text-xs font-bold uppercase tracking-[0.12em] text-[#31599a]">
-          {post.category}
-        </span>
-        <span className="text-sm font-medium text-[#9aa7bb]">{post.number}</span>
-      </div>
-
-      <h3 className="mt-4 text-xl font-bold leading-6 text-[#29265f]">
-        {post.title}
-      </h3>
-      <p className="mt-3 whitespace-pre-line text-base leading-7 text-[#3f4b5f]">
-        {post.copy}
-      </p>
-
-      <div className="mt-4 flex flex-wrap gap-x-1.5 gap-y-1 text-sm font-medium text-[#4f84c4]">
-        {post.hashtags.map((tag) => (
-          <span key={tag}>{tag}</span>
-        ))}
-      </div>
-
-      <div className="mt-4 flex flex-wrap items-center gap-2">
-        {post.assets.map((asset) => (
-          <a
-            key={asset.src}
-            href={asset.src}
-            target="_blank"
-            rel="noreferrer"
-            className="group relative h-16 w-16 overflow-hidden rounded-lg border border-[#d9e0ea] bg-[#f7f8fb]"
-            title={asset.alt}
-          >
-            <Image
-              src={asset.src}
-              alt={asset.alt}
-              fill
-              sizes="64px"
-              className="object-cover"
-            />
-            <span className="absolute right-1 top-1 flex h-5 w-5 items-center justify-center rounded-full bg-[#29265f] text-xs text-white opacity-90">
-              x
-            </span>
-          </a>
-        ))}
-        {post.assets.length === 0 && post.suggested ? (
-          <div className="inline-flex h-10 items-center gap-2 rounded-md border border-dashed border-[#cdd8ea] bg-[#f7fbff] px-3 text-sm font-semibold text-[#7b8798]">
-            <ImageIcon className="h-4 w-4" />
-            {post.suggested}
-          </div>
-        ) : null}
-        <button
-          type="button"
-          className="flex h-10 w-10 items-center justify-center rounded-md border border-dashed border-[#cdd8ea] bg-[#f7fbff] text-[#31599a]"
-          title="Attach asset placeholder"
-        >
-          <Plus className="h-4 w-4" />
-        </button>
-      </div>
-
-      <div className="mt-5 flex flex-wrap items-center justify-between gap-3 border-t border-dashed border-[#d9e0ea] pt-4">
-        <div className="flex flex-wrap gap-2">
-          {post.platforms.map((platform) => (
-            <span
-              key={platform}
-              className="rounded-full bg-[#f1f4f8] px-2.5 py-1 text-xs font-semibold text-[#566476]"
-            >
-              {platform}
-            </span>
-          ))}
-          <span
-            className={clsx(
-              "rounded-full border px-2.5 py-1 text-xs font-bold",
-              statusClasses(post.status)
-            )}
-          >
-            {post.status}
+    <article className="grid gap-4 rounded-lg border border-[#dfe4dd] bg-white p-4 shadow-sm lg:grid-cols-[132px_1fr_auto]">
+      <a
+        href={post.asset}
+        target="_blank"
+        rel="noreferrer"
+        className="relative aspect-square overflow-hidden rounded-md border border-[#e2e2dc] bg-[#f7f6f0]"
+      >
+        <Image src={post.asset} alt={post.assetAlt} fill sizes="132px" className="object-cover" />
+      </a>
+      <div className="min-w-0">
+        <div className="flex flex-wrap items-center gap-2">
+          <span className="rounded-full bg-[#f7f6f0] px-2.5 py-1 text-xs font-bold uppercase text-[#687080]">
+            {post.date}
+          </span>
+          <span className="rounded-full bg-[#eef4f3] px-2.5 py-1 text-xs font-bold text-[#2f8f83]">
+            {post.channel}
+          </span>
+          <span className="rounded-full bg-[#fff1e5] px-2.5 py-1 text-xs font-bold text-[#b85500]">
+            {post.format}
           </span>
         </div>
+        <h3 className="mt-3 text-lg font-bold text-[#171717]">{post.title}</h3>
+        <p className="mt-2 line-clamp-3 whitespace-pre-line text-sm leading-6 text-[#515965]">
+          {post.copy}
+        </p>
+      </div>
+      <div className="flex flex-row items-center justify-between gap-3 lg:flex-col lg:items-end">
+        <span className={clsx("rounded-full border px-3 py-1 text-xs font-bold", queueStatusClasses(post.status))}>
+          {post.status}
+        </span>
         <CopyButton post={post} />
       </div>
     </article>
@@ -394,46 +261,47 @@ function ContentCard({ post }: { post: ContentPost }) {
 
 export function SocialAutomationPlan() {
   return (
-    <main className="min-h-screen bg-[#eef2f6] text-[#1b2433]">
-      <header className="border-b border-[#dbe2ec] bg-white/95 px-5 py-3 backdrop-blur">
-        <div className="mx-auto flex max-w-[1600px] flex-col gap-3 lg:flex-row lg:items-center lg:justify-between">
-          <div className="flex items-center gap-4">
+    <main className="min-h-screen overflow-x-hidden bg-[#eef1ea] text-[#171717]">
+      <header className="border-b border-[#dce2dc] bg-[#fbfbf8]/95 px-4 py-3 backdrop-blur sm:px-5">
+        <div className="mx-auto flex max-w-[1500px] flex-col gap-3 lg:flex-row lg:items-center lg:justify-between">
+          <div className="flex min-w-0 flex-col gap-3 sm:flex-row sm:items-center sm:gap-4">
             <Image
               src="/brand/CrumbLabz_Signature.png"
               alt="CrumbLabz"
-              width={190}
-              height={40}
-              className="h-auto w-[190px]"
+              width={184}
+              height={42}
+              className="h-auto w-44 max-w-full shrink-0"
               priority
             />
-            <div className="border-l border-[#dbe2ec] pl-4">
-              <h1 className="text-2xl font-bold leading-7 text-[#1b1916]">
-                Social Engine
-              </h1>
-              <p className="text-xs font-bold uppercase tracking-[0.14em] text-[#8793a5]">
-                Social media automation dashboard
+            <div className="min-w-0 max-w-full border-[#dce2dc] sm:border-l sm:pl-4">
+              <p className="text-xs font-bold uppercase tracking-[0.14em] text-[#b85500]">
+                Social Automation MVP
               </p>
+              <h1 className="text-2xl font-bold leading-7">Launch Control</h1>
             </div>
           </div>
-          <div className="flex flex-wrap items-center gap-4 text-sm text-[#728096]">
-            <button
-              type="button"
-              className="inline-flex h-9 items-center gap-2 rounded-md border border-[#d9e0ea] bg-[#f7f8fb] px-3 font-semibold text-[#566476]"
+          <div className="grid w-full grid-cols-1 gap-2 text-sm min-[420px]:grid-cols-2 lg:w-auto">
+            <a
+              href="/instagram-first-post/crumblabz-native-carousel.zip"
+              download
+              className="inline-flex h-10 min-w-0 items-center justify-center gap-2 rounded-md border border-[#f27405] bg-[#f27405] px-3 font-bold text-white transition hover:bg-[#d76000]"
             >
-              <RefreshCw className="h-4 w-4" />
-              Refresh
-            </button>
-            <span className="inline-flex items-center gap-2">
-              <span className="h-2 w-2 rounded-full bg-emerald-400" />
-              Updated today
-            </span>
-            <span>Friday, July 24, 2026</span>
+              <Download className="h-4 w-4" />
+              Download carousel
+            </a>
+            <Link
+              href="/instagram-first-post"
+              className="inline-flex h-10 min-w-0 items-center justify-center gap-2 rounded-md border border-[#d9e0d7] bg-white px-3 font-bold text-[#344051] transition hover:bg-[#f7f8f4]"
+            >
+              <ExternalLink className="h-4 w-4" />
+              Review post
+            </Link>
           </div>
         </div>
       </header>
 
-      <div className="mx-auto grid max-w-[1600px] gap-6 px-5 py-6 lg:grid-cols-[260px_1fr]">
-        <aside className="h-fit rounded-2xl bg-white p-3 shadow-sm">
+      <div className="mx-auto grid max-w-[1500px] gap-5 px-4 py-5 sm:px-5 lg:grid-cols-[240px_1fr]">
+        <aside className="h-fit w-full min-w-0 overflow-hidden rounded-lg border border-[#dfe4dd] bg-white p-3 shadow-sm">
           <nav className="grid gap-1">
             {navItems.map((item) => {
               const Icon = item.Icon;
@@ -442,236 +310,196 @@ export function SocialAutomationPlan() {
                   key={item.label}
                   type="button"
                   className={clsx(
-                    "flex h-12 items-center gap-3 rounded-lg px-4 text-left text-base font-bold transition",
-                    item.active
-                      ? "bg-[#29265f] text-white"
-                      : "text-[#4b5565] hover:bg-[#f1f4f8]"
+                    "flex h-11 items-center gap-3 rounded-md px-3 text-left text-sm font-bold transition",
+                    item.active ? "bg-[#171717] text-white" : "text-[#4b5565] hover:bg-[#f5f5ef]"
                   )}
                 >
-                  <Icon className="h-5 w-5" />
+                  <Icon className="h-4 w-4" />
                   {item.label}
                 </button>
               );
             })}
           </nav>
 
-          <div className="mt-5 rounded-xl border border-[#d9e0ea] bg-[#f7f8fb] p-4">
-            <div className="flex items-center gap-2 text-sm font-bold text-[#1b2433]">
-              <ShieldCheck className="h-4 w-4 text-emerald-600" />
+          <div className="mt-4 rounded-md border border-[#f0d7c4] bg-[#fff5eb] p-3">
+            <div className="flex items-center gap-2 text-sm font-bold text-[#171717]">
+              <ShieldCheck className="h-4 w-4 text-[#f27405]" />
               Honest status
             </div>
-            <p className="mt-2 text-sm leading-5 text-[#647084]">
-              This plans and prepares content now. Real auto-posting starts only
-              after platform accounts and scheduler tokens are connected.
+            <p className="mt-2 text-sm leading-5 text-[#68574a]">
+              This is a working planning and approval layer. Auto-posting is next, after accounts and tokens are connected.
             </p>
           </div>
         </aside>
 
-        <section className="grid gap-6">
-          <section
-            className="overflow-hidden rounded-2xl border border-white/10 bg-[#16140f] p-6 text-white shadow-sm"
-            style={{
-              backgroundImage:
-                "radial-gradient(62% 80% at 78% 18%, rgba(232,122,46,.22), transparent 60%), radial-gradient(54% 64% at 12% 92%, rgba(212,97,46,.18), transparent 58%)"
-            }}
-          >
-            <div className="grid gap-6 xl:grid-cols-[1fr_420px]">
-              <div>
-                <span className="inline-flex items-center gap-2 rounded-full border border-white/15 bg-white/5 px-4 py-1.5 text-sm font-semibold text-white/70">
-                  <span className="h-1.5 w-1.5 rounded-full bg-[#e87a2e]" />
-                  Custom operations software
-                </span>
-                <h2 className="mt-5 max-w-3xl text-4xl font-bold leading-tight text-white md:text-5xl">
-                  A social media system CrumbLabz can actually run.
-                </h2>
-                <p className="mt-4 max-w-3xl text-base leading-7 text-white/65">
-                  The MVP is an approval-first social dashboard: plan the
-                  content, attach assets, approve the copy, schedule through a
-                  channel tool, then track what works.
-                </p>
-              </div>
-              <div className="rounded-2xl border border-white/10 bg-white/10 p-4">
-                <div className="grid gap-3">
-                  {automationSteps.map((step, index) => (
-                    <div
-                      key={step.title}
-                      className="grid grid-cols-[36px_1fr_auto] items-start gap-3 rounded-xl bg-white/10 p-3"
-                    >
-                      <span className="flex h-8 w-8 items-center justify-center rounded-lg bg-[#e87a2e] text-sm font-bold text-white">
-                        {index + 1}
-                      </span>
-                      <div>
-                        <h3 className="font-bold text-white">{step.title}</h3>
-                        <p className="text-sm leading-5 text-white/60">
-                          {step.detail}
-                        </p>
-                      </div>
-                      <span className="rounded-full bg-white/10 px-2 py-1 text-xs font-bold text-white/70">
-                        {step.state}
-                      </span>
-                    </div>
-                  ))}
-                </div>
-              </div>
-            </div>
-          </section>
-
-          <section className="grid gap-3 md:grid-cols-2 xl:grid-cols-4">
-            {stats.map((item) => (
-              <article
-                key={item.label}
-                className="rounded-2xl border border-[#d9e0ea] bg-white p-5 shadow-sm"
-              >
-                <p className="text-xs font-bold uppercase tracking-[0.12em] text-[#8793a5]">
-                  {item.label}
-                </p>
-                <p className="mt-2 text-2xl font-bold text-[#29265f]">
-                  {item.value}
-                </p>
-                <p className="mt-1 text-sm text-[#647084]">{item.detail}</p>
-              </article>
-            ))}
-          </section>
-
-          <section className="grid gap-6 xl:grid-cols-[1fr_360px]">
-            <div>
-              <div className="mb-4 flex items-center justify-between gap-3">
-                <div>
-                  <h2 className="text-2xl font-bold text-[#1b2433]">
-                    Content Calendar
+        <section className="grid min-w-0 gap-5">
+          <section className="grid gap-5 xl:grid-cols-[1fr_420px]">
+            <div className="min-w-0 overflow-hidden rounded-lg border border-[#dfe4dd] bg-white p-5 shadow-sm">
+              <div className="flex flex-wrap items-start justify-between gap-4">
+                <div className="min-w-0 max-w-full">
+                  <p className="text-xs font-bold uppercase tracking-[0.14em] text-[#b85500]">
+                    Approval-first automation
+                  </p>
+                  <h2 className="mt-2 max-w-full text-balance text-[1.75rem] font-bold leading-tight sm:max-w-3xl sm:text-4xl">
+                    Plan the post. Approve the message. Schedule the channel.
                   </h2>
-                  <p className="text-sm text-[#647084]">
-                    Week 1 posts with captions, platform targets, assets, and
-                    honest next actions.
+                  <p className="mt-3 max-w-full text-base leading-7 text-[#515965] sm:max-w-3xl">
+                    The platform is designed to keep CrumbLabz consistent and safe: content briefs, generated drafts, brand assets, human approval, scheduler handoff, and weekly performance review.
                   </p>
                 </div>
-                <a
-                  href="/instagram-first-post/crumblabz-website-v2-carousel.zip"
-                  download
-                  className="hidden h-10 items-center gap-2 rounded-md border border-[#e87a2e] bg-[#e87a2e] px-3 text-sm font-bold text-white transition hover:bg-[#d46a1e] sm:inline-flex"
-                >
-                  <Download className="h-4 w-4" />
-                  Download assets
-                </a>
+                <span className="inline-flex items-center gap-2 rounded-full border border-emerald-200 bg-emerald-50 px-3 py-1 text-sm font-bold text-emerald-700">
+                  <CheckCircle2 className="h-4 w-4" />
+                  MVP deployed
+                </span>
               </div>
-              <div className="grid gap-5 xl:grid-cols-2">
-                {posts.map((post) => (
-                  <ContentCard key={post.id} post={post} />
+
+              <div className="mt-6 grid gap-3 md:grid-cols-4">
+                {metrics.map((item) => (
+                  <article key={item.label} className="rounded-md border border-[#e3e6df] bg-[#fbfbf8] p-4">
+                    <p className="text-xs font-bold uppercase text-[#7a8290]">{item.label}</p>
+                    <p className="mt-2 text-2xl font-bold text-[#171717]">{item.value}</p>
+                    <p className="mt-1 text-sm text-[#626b78]">{item.detail}</p>
+                  </article>
                 ))}
               </div>
             </div>
 
+            <article className="min-w-0 overflow-hidden rounded-lg border border-[#dfe4dd] bg-[#171717] p-5 text-white shadow-sm">
+              <div className="flex items-center justify-between gap-3">
+                <h2 className="text-lg font-bold">Publishing Workflow</h2>
+                <Bot className="h-5 w-5 text-[#f27405]" />
+              </div>
+              <div className="mt-4 grid gap-3">
+                {workflow.map((step, index) => (
+                  <div key={step.title} className="grid grid-cols-[34px_1fr_auto] items-start gap-3 rounded-md bg-white/8 p-3">
+                    <span className="flex h-8 w-8 items-center justify-center rounded-md bg-[#f27405] text-sm font-bold">
+                      {index + 1}
+                    </span>
+                    <div>
+                      <h3 className="font-bold">{step.title}</h3>
+                      <p className="mt-1 text-sm leading-5 text-white/65">{step.detail}</p>
+                    </div>
+                    <span className="rounded-full bg-white/10 px-2 py-1 text-xs font-bold text-white/75">
+                      {step.state}
+                    </span>
+                  </div>
+                ))}
+              </div>
+            </article>
+          </section>
+
+          <section className="grid gap-5 xl:grid-cols-[1fr_360px]">
+            <div className="grid gap-5">
+              <article className="min-w-0 overflow-hidden rounded-lg border border-[#dfe4dd] bg-white p-5 shadow-sm">
+                <div className="flex flex-wrap items-center justify-between gap-3">
+                  <div>
+                    <h2 className="text-xl font-bold">Launch Carousel</h2>
+                    <p className="mt-1 text-sm text-[#626b78]">
+                      Designed for Instagram using website colours, language, logo, sky asset, and product UI cues.
+                    </p>
+                  </div>
+                  <span className="rounded-full border border-[#f0d7c4] bg-[#fff5eb] px-3 py-1 text-xs font-bold text-[#b85500]">
+                    Not screenshots
+                  </span>
+                </div>
+                <div className="mt-4 grid grid-cols-2 gap-3 md:grid-cols-4 xl:grid-cols-7">
+                  {carouselSlides.map((slide, index) => (
+                    <a
+                      key={slide.src}
+                      href={slide.src}
+                      target="_blank"
+                      rel="noreferrer"
+                      className="group overflow-hidden rounded-md border border-[#dfe4dd] bg-[#fbfbf8]"
+                    >
+                      <div className="relative aspect-square">
+                        <Image src={slide.src} alt={slide.alt} fill sizes="160px" className="object-cover" />
+                      </div>
+                      <div className="flex items-center justify-between px-2 py-1.5 text-xs font-bold text-[#515965]">
+                        <span>Slide {index + 1}</span>
+                        <ImageIcon className="h-3.5 w-3.5 opacity-60 transition group-hover:opacity-100" />
+                      </div>
+                    </a>
+                  ))}
+                </div>
+              </article>
+
+              <article className="min-w-0 overflow-hidden rounded-lg border border-[#dfe4dd] bg-white p-5 shadow-sm">
+                <div className="flex flex-wrap items-center justify-between gap-3">
+                  <div>
+                    <h2 className="text-xl font-bold">Content Queue</h2>
+                    <p className="mt-1 text-sm text-[#626b78]">
+                      These are prepared posts, not live scheduled posts. Approval comes first.
+                    </p>
+                  </div>
+                  <button
+                    type="button"
+                    className="inline-flex h-10 items-center gap-2 rounded-md border border-[#d9e0d7] bg-[#fbfbf8] px-3 text-sm font-bold text-[#344051]"
+                  >
+                    <UploadCloud className="h-4 w-4" />
+                    Add draft
+                  </button>
+                </div>
+                <div className="mt-4 grid gap-3">
+                  {queue.map((post) => (
+                    <QueueCard key={post.id} post={post} />
+                  ))}
+                </div>
+              </article>
+            </div>
+
             <aside className="grid h-fit gap-5">
-              <article className="rounded-2xl border border-[#d9e0ea] bg-white p-5 shadow-sm">
+              <article className="rounded-lg border border-[#dfe4dd] bg-white p-5 shadow-sm">
                 <div className="flex items-center gap-2">
-                  <AlertTriangle className="h-5 w-5 text-[#e87a2e]" />
-                  <h2 className="text-lg font-bold text-[#1b2433]">
-                    Connection Status
-                  </h2>
+                  <AlertTriangle className="h-5 w-5 text-[#f27405]" />
+                  <h2 className="text-lg font-bold">Channel Connections</h2>
                 </div>
                 <div className="mt-4 grid gap-3">
                   {channels.map((channel) => {
                     const Icon = channel.Icon;
                     return (
-                      <div
-                        key={channel.name}
-                        className="rounded-xl border border-[#d9e0ea] bg-[#f7f8fb] p-3"
-                      >
+                      <div key={channel.name} className="rounded-md border border-[#e3e6df] bg-[#fbfbf8] p-3">
                         <div className="flex items-start justify-between gap-3">
                           <div className="flex items-start gap-2">
-                            <Icon className="mt-1 h-4 w-4 text-[#29265f]" />
+                            <Icon className="mt-1 h-4 w-4 text-[#171717]" />
                             <div>
-                              <h3 className="font-bold text-[#1b2433]">
-                                {channel.name}
-                              </h3>
-                              <p className="text-sm text-[#647084]">
-                                {channel.handle}
-                              </p>
+                              <h3 className="font-bold">{channel.name}</h3>
+                              <p className="text-sm text-[#626b78]">{channel.handle}</p>
                             </div>
                           </div>
-                          <span
-                            className={clsx(
-                              "rounded-full px-2 py-1 text-xs font-bold",
-                              channel.tone === "ready" &&
-                                "bg-emerald-50 text-emerald-700",
-                              channel.tone === "blocked" &&
-                                "bg-amber-50 text-amber-700",
-                              channel.tone === "next" &&
-                                "bg-[#eef3f9] text-[#31599a]"
-                            )}
-                          >
+                          <span className={clsx("rounded-full border px-2 py-1 text-xs font-bold", channelStatusClasses(channel.status))}>
                             {channel.status}
                           </span>
                         </div>
-                        <p className="mt-2 text-sm leading-5 text-[#647084]">
-                          {channel.detail}
-                        </p>
+                        <p className="mt-2 text-sm leading-5 text-[#626b78]">{channel.detail}</p>
                       </div>
                     );
                   })}
                 </div>
               </article>
 
-              <article className="rounded-2xl border border-[#d9e0ea] bg-white p-5 shadow-sm">
+              <article className="rounded-lg border border-[#dfe4dd] bg-white p-5 shadow-sm">
                 <div className="flex items-center gap-2">
-                  <Archive className="h-5 w-5 text-[#e87a2e]" />
-                  <h2 className="text-lg font-bold text-[#1b2433]">
-                    Asset Library
-                  </h2>
+                  <Sparkles className="h-5 w-5 text-[#f27405]" />
+                  <h2 className="text-lg font-bold">Guardrails</h2>
                 </div>
-                <div className="mt-4 grid gap-3">
-                  {[
-                    ["/brand/CrumbLabz_Signature.png", "Signature logo"],
-                    ["/brand/CrumbLabz_Signature_Light.png", "Light logo"],
-                    [
-                      "/instagram-first-post/crumblabz-website-v2-contact-sheet.png",
-                      "Carousel contact sheet"
-                    ]
-                  ].map(([src, label]) => (
-                    <a
-                      key={src}
-                      href={src}
-                      target="_blank"
-                      rel="noreferrer"
-                      className="grid grid-cols-[72px_1fr_auto] items-center gap-3 rounded-xl border border-[#d9e0ea] bg-[#f7f8fb] p-2"
-                    >
-                      <span className="relative h-14 overflow-hidden rounded-lg bg-white">
-                        <Image
-                          src={src}
-                          alt={label}
-                          fill
-                          sizes="72px"
-                          className="object-contain p-1"
-                        />
-                      </span>
-                      <span className="text-sm font-bold text-[#1b2433]">
-                        {label}
-                      </span>
-                      <ExternalLink className="h-4 w-4 text-[#647084]" />
-                    </a>
+                <div className="mt-4 grid gap-2">
+                  {guardrails.map((item) => (
+                    <div key={item} className="flex gap-2 rounded-md bg-[#fbfbf8] p-3 text-sm leading-5 text-[#515965]">
+                      <ShieldCheck className="mt-0.5 h-4 w-4 shrink-0 text-[#2f8f83]" />
+                      {item}
+                    </div>
                   ))}
                 </div>
               </article>
 
-              <article className="rounded-2xl border border-[#e87a2e]/25 bg-[#fff7ef] p-5 shadow-sm">
+              <article className="rounded-lg border border-[#f0d7c4] bg-[#fff5eb] p-5 shadow-sm">
                 <div className="flex items-center gap-2">
-                  <Send className="h-5 w-5 text-[#e87a2e]" />
-                  <h2 className="text-lg font-bold text-[#1b2433]">
-                    What happens after approval
-                  </h2>
+                  <Send className="h-5 w-5 text-[#f27405]" />
+                  <h2 className="text-lg font-bold">Next Real Build Step</h2>
                 </div>
-                <p className="mt-3 text-sm leading-6 text-[#5f4c3e]">
-                  Connect Buffer or Meta Business Suite, add the platform
-                  tokens to Vercel, then use this dashboard as the planning and
-                  approval layer before scheduled posting.
+                <p className="mt-3 text-sm leading-6 text-[#68574a]">
+                  After Ryan approves the content direction, connect Meta Business Suite or Buffer. Then this app can move approved posts into a real scheduler instead of only preparing them.
                 </p>
-                <a
-                  href="/instagram-first-post"
-                  className="mt-4 inline-flex h-10 items-center gap-2 rounded-md border border-[#e87a2e] bg-[#e87a2e] px-3 text-sm font-bold text-white transition hover:bg-[#d46a1e]"
-                >
-                  <CheckCircle2 className="h-4 w-4" />
-                  Review carousel
-                </a>
               </article>
             </aside>
           </section>
