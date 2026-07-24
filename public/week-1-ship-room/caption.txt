@@ -1,14 +1,8 @@
 Describe it Monday. Use it Friday.
 
-Custom operations software for real businesses, designed and shipped in days. One problem at a time.
+CrumbLabz turns operational headaches into working tools: dashboards, approval queues, outreach systems, reporting flows, and small internal software that saves real hours.
 
-Every business has a process that quietly eats hours. CrumbLabz builds focused tools for the workflows that slow teams down:
-- manual data entry
-- slow reporting
-- disconnected tools
-- slow customer response
-- repetitive admin tasks
-- no visibility into data
+Start with one slow process. We map it, build the useful version, and get it in front of the team fast.
 
 Tell us your headache.
 

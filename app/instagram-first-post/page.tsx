@@ -12,41 +12,35 @@ import {
 const slides = [
   {
     title: "Describe it Monday. Use it Friday.",
-    src: "/instagram-first-post/crumblabz-minimal-carousel-01.png"
+    src: "/instagram-first-post/crumblabz-website-carousel-01.png"
   },
   {
-    title: "One problem at a time",
-    src: "/instagram-first-post/crumblabz-minimal-carousel-02.png"
+    title: "The work becomes visible",
+    src: "/instagram-first-post/crumblabz-website-carousel-02.png"
   },
   {
     title: "Processes that eat hours",
-    src: "/instagram-first-post/crumblabz-minimal-carousel-03.png"
-  },
-  {
-    title: "The CrumbLabz way",
-    src: "/instagram-first-post/crumblabz-minimal-carousel-04.png"
+    src: "/instagram-first-post/crumblabz-website-carousel-03.png"
   },
   {
     title: "Real tools, really shipped",
-    src: "/instagram-first-post/crumblabz-minimal-carousel-05.png"
+    src: "/instagram-first-post/crumblabz-website-carousel-04.png"
+  },
+  {
+    title: "From headache to working tool",
+    src: "/instagram-first-post/crumblabz-website-carousel-05.png"
   },
   {
     title: "Tell us your headache",
-    src: "/instagram-first-post/crumblabz-minimal-carousel-06.png"
+    src: "/instagram-first-post/crumblabz-website-carousel-06.png"
   }
 ];
 
 const caption = `Describe it Monday. Use it Friday.
 
-Custom operations software for real businesses, designed and shipped in days. One problem at a time.
+CrumbLabz turns operational headaches into working tools: dashboards, approval queues, outreach systems, reporting flows, and small internal software that saves real hours.
 
-Every business has a process that quietly eats hours. CrumbLabz builds focused tools for the workflows that slow teams down:
-- manual data entry
-- slow reporting
-- disconnected tools
-- slow customer response
-- repetitive admin tasks
-- no visibility into data
+Start with one slow process. We map it, build the useful version, and get it in front of the team fast.
 
 Tell us your headache.
 
@@ -55,7 +49,7 @@ Tell us your headache.
 export const metadata: Metadata = {
   title: "First Instagram Post Review | CrumbLabz Social Engine",
   description:
-    "Review page for the first CrumbLabz website-inspired Instagram carousel, including slides, caption, and downloadable assets."
+    "Review page for the first CrumbLabz website screenshot Instagram carousel, including slides, caption, and downloadable assets."
 };
 
 export default function InstagramFirstPostPage() {
@@ -78,12 +72,12 @@ export default function InstagramFirstPostPage() {
                   CrumbLabz Instagram
                 </p>
                 <h1 className="text-2xl font-bold tracking-0 text-ink sm:text-3xl">
-                  Minimal Website-Matched Launch Carousel
+                  Website Screenshot Launch Carousel
                 </h1>
                 <p className="mt-1 max-w-3xl text-sm text-stone-600">
                   A launch-ready asset for the CrumbLabz social automation
-                  plan: exact live website assets, restrained brand colours,
-                  and short copy pulled from the current homepage.
+                  plan: real homepage visuals, live dashboard proof, and
+                  concise copy pulled from the current website.
                 </p>
               </div>
             </div>
@@ -149,9 +143,10 @@ export default function InstagramFirstPostPage() {
         <section className="rounded-lg border border-[#e87a2e]/25 bg-[#e87a2e]/10 p-4 text-sm text-graphite shadow-panel">
           <strong className="text-ink">Review note:</strong>
           <span className="ml-2">
-            This version directly addresses the design feedback: official
-            CrumbLabz logo, live website hero image, minimal styling, and
-            finished carousel assets ready for approval.
+            This version directly addresses the design feedback: the carousel
+            uses the strongest live website sections instead of invented mock
+            graphics, so the first post matches what visitors see on
+            crumblabz.vercel.app.
           </span>
         </section>
 
@@ -214,7 +209,7 @@ export default function InstagramFirstPostPage() {
               <h2 className="text-lg font-bold text-ink">Downloads</h2>
               <div className="mt-4 grid gap-2">
                 <a
-                  href="/instagram-first-post/crumblabz-minimal-carousel.zip"
+                  href="/instagram-first-post/crumblabz-website-carousel.zip"
                   download
                   className="inline-flex h-10 items-center justify-center gap-2 rounded-md border border-mint bg-mint px-3 text-sm font-semibold text-white transition hover:bg-mint/90"
                 >
@@ -222,7 +217,7 @@ export default function InstagramFirstPostPage() {
                   Download all assets
                 </a>
                 <a
-                  href="/instagram-first-post/crumblabz-minimal-caption.txt"
+                  href="/instagram-first-post/crumblabz-website-caption.txt"
                   download
                   className="inline-flex h-10 items-center justify-center gap-2 rounded-md border border-stone-200 bg-white px-3 text-sm font-semibold text-graphite transition hover:bg-stone-50"
                 >
