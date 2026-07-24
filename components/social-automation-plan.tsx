@@ -153,27 +153,27 @@ const posts: ContentPost[] = [
     status: "Ready",
     assets: [
       {
-        src: "/instagram-first-post/crumblabz-website-carousel-01.png",
+        src: "/instagram-first-post/crumblabz-website-v2-carousel-01.png",
         alt: "Carousel slide 1"
       },
       {
-        src: "/instagram-first-post/crumblabz-website-carousel-02.png",
+        src: "/instagram-first-post/crumblabz-website-v2-carousel-02.png",
         alt: "Carousel slide 2"
       },
       {
-        src: "/instagram-first-post/crumblabz-website-carousel-03.png",
+        src: "/instagram-first-post/crumblabz-website-v2-carousel-03.png",
         alt: "Carousel slide 3"
       },
       {
-        src: "/instagram-first-post/crumblabz-website-carousel-04.png",
+        src: "/instagram-first-post/crumblabz-website-v2-carousel-04.png",
         alt: "Carousel slide 4"
       },
       {
-        src: "/instagram-first-post/crumblabz-website-carousel-05.png",
+        src: "/instagram-first-post/crumblabz-website-v2-carousel-05.png",
         alt: "Carousel slide 5"
       },
       {
-        src: "/instagram-first-post/crumblabz-website-carousel-06.png",
+        src: "/instagram-first-post/crumblabz-website-v2-carousel-06.png",
         alt: "Carousel slide 6"
       }
     ]
@@ -190,7 +190,7 @@ const posts: ContentPost[] = [
     status: "Ready",
     assets: [
       {
-        src: "/instagram-first-post/crumblabz-website-carousel-04.png",
+        src: "/instagram-first-post/crumblabz-website-v2-carousel-04.png",
         alt: "Dashboard proof slide"
       }
     ]
@@ -207,7 +207,7 @@ const posts: ContentPost[] = [
     status: "Ready",
     assets: [
       {
-        src: "/instagram-first-post/crumblabz-website-carousel-03.png",
+        src: "/instagram-first-post/crumblabz-website-v2-carousel-03.png",
         alt: "Problem list slide"
       }
     ]
@@ -224,7 +224,7 @@ const posts: ContentPost[] = [
     status: "Ready",
     assets: [
       {
-        src: "/instagram-first-post/crumblabz-website-carousel-05.png",
+        src: "/instagram-first-post/crumblabz-website-v2-carousel-05.png",
         alt: "Process slide"
       }
     ]
@@ -546,7 +546,7 @@ export function SocialAutomationPlan() {
                   </p>
                 </div>
                 <a
-                  href="/instagram-first-post/crumblabz-website-carousel.zip"
+                  href="/instagram-first-post/crumblabz-website-v2-carousel.zip"
                   download
                   className="hidden h-10 items-center gap-2 rounded-md border border-[#e87a2e] bg-[#e87a2e] px-3 text-sm font-bold text-white transition hover:bg-[#d46a1e] sm:inline-flex"
                 >
@@ -624,7 +624,7 @@ export function SocialAutomationPlan() {
                     ["/brand/CrumbLabz_Signature.png", "Signature logo"],
                     ["/brand/CrumbLabz_Signature_Light.png", "Light logo"],
                     [
-                      "/instagram-first-post/crumblabz-website-contact-sheet.png",
+                      "/instagram-first-post/crumblabz-website-v2-contact-sheet.png",
                       "Carousel contact sheet"
                     ]
                   ].map(([src, label]) => (

@@ -12,27 +12,27 @@ import {
 const slides = [
   {
     title: "Describe it Monday. Use it Friday.",
-    src: "/instagram-first-post/crumblabz-website-carousel-01.png"
+    src: "/instagram-first-post/crumblabz-website-v2-carousel-01.png"
   },
   {
     title: "The work becomes visible",
-    src: "/instagram-first-post/crumblabz-website-carousel-02.png"
+    src: "/instagram-first-post/crumblabz-website-v2-carousel-02.png"
   },
   {
     title: "Processes that eat hours",
-    src: "/instagram-first-post/crumblabz-website-carousel-03.png"
+    src: "/instagram-first-post/crumblabz-website-v2-carousel-03.png"
   },
   {
     title: "Real tools, really shipped",
-    src: "/instagram-first-post/crumblabz-website-carousel-04.png"
+    src: "/instagram-first-post/crumblabz-website-v2-carousel-04.png"
   },
   {
     title: "From headache to working tool",
-    src: "/instagram-first-post/crumblabz-website-carousel-05.png"
+    src: "/instagram-first-post/crumblabz-website-v2-carousel-05.png"
   },
   {
     title: "Tell us your headache",
-    src: "/instagram-first-post/crumblabz-website-carousel-06.png"
+    src: "/instagram-first-post/crumblabz-website-v2-carousel-06.png"
   }
 ];
 
@@ -209,7 +209,7 @@ export default function InstagramFirstPostPage() {
               <h2 className="text-lg font-bold text-ink">Downloads</h2>
               <div className="mt-4 grid gap-2">
                 <a
-                  href="/instagram-first-post/crumblabz-website-carousel.zip"
+                  href="/instagram-first-post/crumblabz-website-v2-carousel.zip"
                   download
                   className="inline-flex h-10 items-center justify-center gap-2 rounded-md border border-mint bg-mint px-3 text-sm font-semibold text-white transition hover:bg-mint/90"
                 >
@@ -217,7 +217,7 @@ export default function InstagramFirstPostPage() {
                   Download all assets
                 </a>
                 <a
-                  href="/instagram-first-post/crumblabz-website-caption.txt"
+                  href="/instagram-first-post/crumblabz-website-v2-caption.txt"
                   download
                   className="inline-flex h-10 items-center justify-center gap-2 rounded-md border border-stone-200 bg-white px-3 text-sm font-semibold text-graphite transition hover:bg-stone-50"
                 >
