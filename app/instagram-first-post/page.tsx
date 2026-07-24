@@ -11,43 +11,47 @@ import {
 
 const slides = [
   {
-    title: "Operational headaches into working tools",
+    title: "Hook with product proof",
     src: "/instagram-first-post/crumblabz-first-post-slide-01.png"
   },
   {
-    title: "The problem",
+    title: "The scattered workflow",
     src: "/instagram-first-post/crumblabz-first-post-slide-02.png"
   },
   {
-    title: "What we build",
+    title: "The useful version",
     src: "/instagram-first-post/crumblabz-first-post-slide-03.png"
   },
   {
-    title: "Our rule",
+    title: "Fast build process",
     src: "/instagram-first-post/crumblabz-first-post-slide-04.png"
   },
   {
-    title: "Tell us one business headache",
+    title: "Clear CTA",
     src: "/instagram-first-post/crumblabz-first-post-slide-05.png"
   }
 ];
 
-const caption = `Some business problems do not need a huge platform.
+const caption = `Your spreadsheet is not the system. It is the symptom.
 
-They need one clear tool that removes friction.
+The real problem is usually the workflow behind it: scattered ownership, manual handoffs, slow reporting, and decisions waiting on someone to rebuild the truth by hand.
 
-CrumbLabz helps teams turn messy workflows, repetitive admin, slow reporting, and scattered processes into practical software that actually fits how the business works.
+CrumbLabz turns operational headaches into working tools.
 
-The goal is simple: better operations without unnecessary complexity.
+One clear place for status.
+One owner for the next action.
+One useful version the team can click, review, and improve.
+
+Tell us one workflow that feels slower than it should.
 
 Business Optimization + AI
 
 #BusinessAutomation #AIForBusiness #Operations #WorkflowAutomation #BusinessOptimization #CustomSoftware #CrumbLabz`;
 
 export const metadata: Metadata = {
-  title: "First Instagram Post | CrumbLabz Social Engine",
+  title: "First Instagram Post Review | CrumbLabz Social Engine",
   description:
-    "Review page for the first CrumbLabz Instagram carousel draft, including slides, caption, and downloadable assets."
+    "Review page for the first CrumbLabz Instagram product-proof carousel, including slides, caption, and downloadable assets."
 };
 
 export default function InstagramFirstPostPage() {
@@ -65,11 +69,11 @@ export default function InstagramFirstPostPage() {
                   CrumbLabz Instagram
                 </p>
                 <h1 className="text-2xl font-bold tracking-0 text-ink sm:text-3xl">
-                  First Post Draft
+                  Product Proof Carousel
                 </h1>
                 <p className="mt-1 max-w-3xl text-sm text-stone-600">
-                  A review-ready carousel introducing the CrumbLabz positioning:
-                  operational headaches into working tools.
+                  A rebuilt first post for Ryan review: stronger hook, visible
+                  product-style visuals, no draft stamp, and a clearer CTA.
                 </p>
               </div>
             </div>
@@ -82,10 +86,17 @@ export default function InstagramFirstPostPage() {
                 Content Pack
               </a>
               <a
+                href="/week-1-ship-room"
+                className="inline-flex h-10 items-center justify-center gap-2 rounded-md border border-[#1E2A5E]/20 bg-[#1E2A5E] px-3 text-sm font-semibold text-white transition hover:bg-[#263875]"
+              >
+                <PackageCheck className="h-4 w-4" />
+                Ship Room
+              </a>
+              <a
                 href="https://www.instagram.com/crumblabz/"
                 target="_blank"
                 rel="noreferrer"
-                className="inline-flex h-10 items-center justify-center gap-2 rounded-md border border-[#e87a2e]/25 bg-[#e87a2e] px-3 text-sm font-semibold text-white transition hover:bg-[#cf6821]"
+                className="inline-flex h-10 items-center justify-center gap-2 rounded-md border border-stone-200 bg-white px-3 text-sm font-semibold text-graphite transition hover:bg-stone-50"
               >
                 <ExternalLink className="h-4 w-4" />
                 Instagram
@@ -98,8 +109,8 @@ export default function InstagramFirstPostPage() {
           {[
             {
               label: "Status",
-              value: "Draft",
-              detail: "Ready for tone approval"
+              value: "Review",
+              detail: "Ready for Ryan feedback"
             },
             {
               label: "Format",
@@ -128,8 +139,9 @@ export default function InstagramFirstPostPage() {
         <section className="rounded-lg border border-[#e87a2e]/25 bg-[#e87a2e]/10 p-4 text-sm text-graphite shadow-panel">
           <strong className="text-ink">Review note:</strong>
           <span className="ml-2">
-            This is built for review only. Do not post it live until the tone,
-            wording, and CTA are approved.
+            This version directly addresses the feedback: no draft stamp, a
+            pain-led hook, product visuals on the opener, and finished carousel
+            assets ready for approval.
           </span>
         </section>
 

@@ -154,11 +154,11 @@ export const launchContentDrafts: LaunchContentDraft[] = [
     platform: "linkedin",
     format: "Text post",
     theme: "Positioning",
-    title: "Operational headaches into working tools",
+    title: "Your spreadsheet is not the system",
     copy:
-      "Every business has small processes that quietly slow the team down.\n\nA spreadsheet that has become too fragile.\nA report that takes hours to rebuild.\nA handoff that depends on one person remembering every step.\nA system that technically works, but makes the team work around it.\n\nCrumbLabz exists for that layer of problems.\n\nYou describe the headache. We design and build a practical tool around the way your business actually works.\n\nThe goal is not software for the sake of software. The goal is a smoother operation.",
+      "Your spreadsheet is not the system. It is the symptom.\n\nThe real problem is usually the workflow behind it: scattered ownership, manual handoffs, slow reporting, and decisions waiting on someone to rebuild the truth by hand.\n\nCrumbLabz turns operational headaches into working tools.\n\nOne clear place for status.\nOne owner for the next action.\nOne useful version the team can click, review, and improve.\n\nTell us one workflow that feels slower than it should.",
     assetDirection:
-      "Plain text post or simple graphic: 'Operational headache -> Working tool'.",
+      "Use the new Week 1 product-proof carousel opener or a cropped dashboard visual.",
     status: "Ready to review"
   },
   {
@@ -171,8 +171,8 @@ export const launchContentDrafts: LaunchContentDraft[] = [
     copy:
       "A working review link changes the conversation.\n\nInstead of debating an abstract idea, the team can click through the workflow, react to what is missing, and decide what should happen next.\n\nThat is why CrumbLabz favours fast MVPs over long planning cycles.\n\nGet the useful version live. Learn from it. Refine what matters.",
     assetDirection:
-      "Screenshot of the Social Engine dashboard with sensitive data removed.",
-    status: "Needs visual"
+      "Use the produced dashboard proof visual for review, then replace it with a real client-safe screenshot when available.",
+    status: "Ready to review"
   },
   {
     id: "w1-linkedin-3",
@@ -204,13 +204,13 @@ export const launchContentDrafts: LaunchContentDraft[] = [
     week: "Week 1",
     platform: "instagram",
     format: "Carousel",
-    theme: "Educational carousel",
-    title: "5 signs your workflow needs a tool",
+    theme: "Product proof carousel",
+    title: "Your spreadsheet is not the system",
     copy:
-      "Slide 1: 5 signs your workflow needs a tool\nSlide 2: The same spreadsheet keeps breaking\nSlide 3: One person has to remember every step\nSlide 4: Reporting takes longer than the decision itself\nSlide 5: Work gets lost between handoffs\nSlide 6: The process works, but only with constant manual effort\nSlide 7: CrumbLabz turns operational headaches into working tools",
+      "Slide 1: Your spreadsheet is not the system. It is the symptom.\nSlide 2: The team is working hard, but the truth lives in too many places.\nSlide 3: One place to see status, ownership, and the next action.\nSlide 4: Describe it Monday. Use it Friday.\nSlide 5: Tell us one workflow that feels slower than it should.",
     assetDirection:
-      "Seven-slide carousel using navy background, orange accent, and short text per slide.",
-    status: "Needs visual"
+      "Five finished 1080x1080 carousel slides with product-style dashboard visuals and caption.",
+    status: "Ready to review"
   },
   {
     id: "w2-linkedin-1",
