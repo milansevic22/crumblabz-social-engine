@@ -12,23 +12,23 @@ import {
 const slides = [
   {
     title: "Custom tools for smarter operations",
-    src: "/instagram-first-post/crumblabz-first-post-slide-01.png"
+    src: "/instagram-first-post/crumblabz-launch-carousel-01.png"
   },
   {
     title: "Where businesses lose time",
-    src: "/instagram-first-post/crumblabz-first-post-slide-02.png"
+    src: "/instagram-first-post/crumblabz-launch-carousel-02.png"
   },
   {
     title: "Real tools, really shipped",
-    src: "/instagram-first-post/crumblabz-first-post-slide-03.png"
+    src: "/instagram-first-post/crumblabz-launch-carousel-03.png"
   },
   {
     title: "Describe Monday, use Friday",
-    src: "/instagram-first-post/crumblabz-first-post-slide-04.png"
+    src: "/instagram-first-post/crumblabz-launch-carousel-04.png"
   },
   {
     title: "Start with one headache",
-    src: "/instagram-first-post/crumblabz-first-post-slide-05.png"
+    src: "/instagram-first-post/crumblabz-launch-carousel-05.png"
   }
 ];
 
@@ -212,7 +212,7 @@ export default function InstagramFirstPostPage() {
               <h2 className="text-lg font-bold text-ink">Downloads</h2>
               <div className="mt-4 grid gap-2">
                 <a
-                  href="/instagram-first-post/crumblabz-instagram-first-post.zip"
+                  href="/instagram-first-post/crumblabz-launch-carousel.zip"
                   download
                   className="inline-flex h-10 items-center justify-center gap-2 rounded-md border border-mint bg-mint px-3 text-sm font-semibold text-white transition hover:bg-mint/90"
                 >
@@ -220,7 +220,7 @@ export default function InstagramFirstPostPage() {
                   Download all assets
                 </a>
                 <a
-                  href="/instagram-first-post/caption.txt"
+                  href="/instagram-first-post/crumblabz-launch-caption.txt"
                   download
                   className="inline-flex h-10 items-center justify-center gap-2 rounded-md border border-stone-200 bg-white px-3 text-sm font-semibold text-graphite transition hover:bg-stone-50"
                 >

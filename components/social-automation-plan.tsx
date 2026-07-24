@@ -154,23 +154,23 @@ const posts: ContentPost[] = [
     status: "Ready",
     assets: [
       {
-        src: "/instagram-first-post/crumblabz-first-post-slide-01.png",
+        src: "/instagram-first-post/crumblabz-launch-carousel-01.png",
         alt: "Carousel slide 1"
       },
       {
-        src: "/instagram-first-post/crumblabz-first-post-slide-02.png",
+        src: "/instagram-first-post/crumblabz-launch-carousel-02.png",
         alt: "Carousel slide 2"
       },
       {
-        src: "/instagram-first-post/crumblabz-first-post-slide-03.png",
+        src: "/instagram-first-post/crumblabz-launch-carousel-03.png",
         alt: "Carousel slide 3"
       },
       {
-        src: "/instagram-first-post/crumblabz-first-post-slide-04.png",
+        src: "/instagram-first-post/crumblabz-launch-carousel-04.png",
         alt: "Carousel slide 4"
       },
       {
-        src: "/instagram-first-post/crumblabz-first-post-slide-05.png",
+        src: "/instagram-first-post/crumblabz-launch-carousel-05.png",
         alt: "Carousel slide 5"
       }
     ]
@@ -187,7 +187,7 @@ const posts: ContentPost[] = [
     status: "Ready",
     assets: [
       {
-        src: "/instagram-first-post/crumblabz-first-post-slide-03.png",
+        src: "/instagram-first-post/crumblabz-launch-carousel-03.png",
         alt: "Dashboard proof slide"
       }
     ]
@@ -204,7 +204,7 @@ const posts: ContentPost[] = [
     status: "Ready",
     assets: [
       {
-        src: "/instagram-first-post/crumblabz-first-post-slide-02.png",
+        src: "/instagram-first-post/crumblabz-launch-carousel-02.png",
         alt: "Problem list slide"
       }
     ]
@@ -221,7 +221,7 @@ const posts: ContentPost[] = [
     status: "Ready",
     assets: [
       {
-        src: "/instagram-first-post/crumblabz-first-post-slide-04.png",
+        src: "/instagram-first-post/crumblabz-launch-carousel-04.png",
         alt: "Process slide"
       }
     ]
@@ -543,7 +543,7 @@ export function SocialAutomationPlan() {
                   </p>
                 </div>
                 <a
-                  href="/instagram-first-post/crumblabz-instagram-first-post.zip"
+                  href="/instagram-first-post/crumblabz-launch-carousel.zip"
                   download
                   className="hidden h-10 items-center gap-2 rounded-md border border-[#e87a2e] bg-[#e87a2e] px-3 text-sm font-bold text-white transition hover:bg-[#d46a1e] sm:inline-flex"
                 >
@@ -621,7 +621,7 @@ export function SocialAutomationPlan() {
                     ["/brand/CrumbLabz_Signature.png", "Signature logo"],
                     ["/brand/CrumbLabz_Signature_Light.png", "Light logo"],
                     [
-                      "/instagram-first-post/preview-contact-sheet.png",
+                      "/instagram-first-post/crumblabz-launch-carousel-contact-sheet.png",
                       "Carousel contact sheet"
                     ]
                   ].map(([src, label]) => (
