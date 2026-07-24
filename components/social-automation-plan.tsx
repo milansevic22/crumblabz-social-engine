@@ -139,39 +139,42 @@ const posts: ContentPost[] = [
     id: "brand-opener",
     category: "Brand opener",
     number: "1 / 12",
-    title: "Custom tools for smarter operations",
+    title: "Describe it Monday. Use it Friday.",
     copy:
-      "Most businesses do not need another giant platform.\n\nThey need the right tool around the workflow that is slowing them down.\n\nCrumbLabz turns operational headaches into working software: dashboards that replace manual reporting, approval flows that stop work getting lost, trackers that make ownership clear, and automations that remove repetitive admin.\n\nYou describe the problem. We design and build a working solution, often in days, not months.\n\nTell us your headache.",
+      "Custom operations software for real businesses, designed and shipped in days. One problem at a time.\n\nEvery business has a process that quietly eats hours. CrumbLabz builds focused tools for the workflows that slow teams down: manual data entry, slow reporting, disconnected tools, slow customer response, repetitive admin tasks, and no visibility into data.\n\nTell us your headache.",
     hashtags: [
       "#CustomSoftware",
       "#Operations",
-      "#BusinessAutomation",
       "#WorkflowAutomation",
-      "#Dashboards",
+      "#BusinessAutomation",
       "#CrumbLabz"
     ],
     platforms: ["Instagram", "LinkedIn"],
     status: "Ready",
     assets: [
       {
-        src: "/instagram-first-post/crumblabz-launch-carousel-01.png",
+        src: "/instagram-first-post/crumblabz-minimal-carousel-01.png",
         alt: "Carousel slide 1"
       },
       {
-        src: "/instagram-first-post/crumblabz-launch-carousel-02.png",
+        src: "/instagram-first-post/crumblabz-minimal-carousel-02.png",
         alt: "Carousel slide 2"
       },
       {
-        src: "/instagram-first-post/crumblabz-launch-carousel-03.png",
+        src: "/instagram-first-post/crumblabz-minimal-carousel-03.png",
         alt: "Carousel slide 3"
       },
       {
-        src: "/instagram-first-post/crumblabz-launch-carousel-04.png",
+        src: "/instagram-first-post/crumblabz-minimal-carousel-04.png",
         alt: "Carousel slide 4"
       },
       {
-        src: "/instagram-first-post/crumblabz-launch-carousel-05.png",
+        src: "/instagram-first-post/crumblabz-minimal-carousel-05.png",
         alt: "Carousel slide 5"
+      },
+      {
+        src: "/instagram-first-post/crumblabz-minimal-carousel-06.png",
+        alt: "Carousel slide 6"
       }
     ]
   },
@@ -181,13 +184,13 @@ const posts: ContentPost[] = [
     number: "2 / 12",
     title: "Real tools, really shipped",
     copy:
-      "The first post should not feel like generic social content.\n\nIt now pulls directly from the website's proof layer: campaign trackers, billing approval queues, and operations dashboards.\n\nThat is the CrumbLabz lane: practical tools that make operations easier to run.",
+      "The first post now follows the live website instead of trying to be a product mockup.\n\nIt uses the homepage promise, exact brand assets, and restrained colours so the social launch feels connected to the site.\n\nThat is the right first impression for CrumbLabz: simple, practical, and clear.",
     hashtags: ["#Operations", "#Dashboards", "#WorkflowAutomation"],
     platforms: ["LinkedIn", "Instagram"],
     status: "Ready",
     assets: [
       {
-        src: "/instagram-first-post/crumblabz-launch-carousel-03.png",
+        src: "/instagram-first-post/crumblabz-minimal-carousel-05.png",
         alt: "Dashboard proof slide"
       }
     ]
@@ -204,7 +207,7 @@ const posts: ContentPost[] = [
     status: "Ready",
     assets: [
       {
-        src: "/instagram-first-post/crumblabz-launch-carousel-02.png",
+        src: "/instagram-first-post/crumblabz-minimal-carousel-03.png",
         alt: "Problem list slide"
       }
     ]
@@ -221,7 +224,7 @@ const posts: ContentPost[] = [
     status: "Ready",
     assets: [
       {
-        src: "/instagram-first-post/crumblabz-launch-carousel-04.png",
+        src: "/instagram-first-post/crumblabz-minimal-carousel-04.png",
         alt: "Process slide"
       }
     ]
@@ -232,7 +235,7 @@ const posts: ContentPost[] = [
     number: "5 / 12",
     title: "Tie social back to the website",
     copy:
-      "Every post should point back to the same clear offer:\n\nCustom tools for smarter operations.\nBuilt around your workflow.\nWorking software in days, not months.\n\nSocial should not feel separate from the website. It should repeat and prove the same message.",
+      "Every post should point back to the same clear offer:\n\nCustom operations software for real businesses.\nDesigned and shipped in days.\nOne problem at a time.\n\nSocial should not feel separate from the website. It should repeat and prove the same message.",
     hashtags: ["#BrandStrategy", "#B2BMarketing", "#CrumbLabz"],
     platforms: ["LinkedIn"],
     status: "Needs screenshot",
@@ -476,7 +479,7 @@ export function SocialAutomationPlan() {
               <div>
                 <span className="inline-flex items-center gap-2 rounded-full border border-white/15 bg-white/5 px-4 py-1.5 text-sm font-semibold text-white/70">
                   <span className="h-1.5 w-1.5 rounded-full bg-[#e87a2e]" />
-                  Custom tools for smarter operations
+                  Custom operations software
                 </span>
                 <h2 className="mt-5 max-w-3xl text-4xl font-bold leading-tight text-white md:text-5xl">
                   A social media system CrumbLabz can actually run.
@@ -543,7 +546,7 @@ export function SocialAutomationPlan() {
                   </p>
                 </div>
                 <a
-                  href="/instagram-first-post/crumblabz-launch-carousel.zip"
+                  href="/instagram-first-post/crumblabz-minimal-carousel.zip"
                   download
                   className="hidden h-10 items-center gap-2 rounded-md border border-[#e87a2e] bg-[#e87a2e] px-3 text-sm font-bold text-white transition hover:bg-[#d46a1e] sm:inline-flex"
                 >
@@ -621,7 +624,7 @@ export function SocialAutomationPlan() {
                     ["/brand/CrumbLabz_Signature.png", "Signature logo"],
                     ["/brand/CrumbLabz_Signature_Light.png", "Light logo"],
                     [
-                      "/instagram-first-post/crumblabz-launch-carousel-contact-sheet.png",
+                      "/instagram-first-post/crumblabz-minimal-contact-sheet.png",
                       "Carousel contact sheet"
                     ]
                   ].map(([src, label]) => (

@@ -1,16 +1,15 @@
-Custom tools for smarter operations.
+Describe it Monday. Use it Friday.
 
-Most businesses do not need another giant platform.
-They need the right tool around the workflow that is slowing them down.
+Custom operations software for real businesses, designed and shipped in days. One problem at a time.
 
-CrumbLabz turns operational headaches into working software:
-- dashboards that replace manual reporting
-- approval flows that stop work getting lost
-- trackers that make ownership clear
-- automations that remove repetitive admin
-
-You describe the problem. We design and build a working solution, often in days, not months.
+Every business has a process that quietly eats hours. CrumbLabz builds focused tools for the workflows that slow teams down:
+- manual data entry
+- slow reporting
+- disconnected tools
+- slow customer response
+- repetitive admin tasks
+- no visibility into data
 
 Tell us your headache.
 
-#CustomSoftware #Operations #BusinessAutomation #WorkflowAutomation #Dashboards #CrumbLabz
+#CustomSoftware #Operations #WorkflowAutomation #BusinessAutomation #CrumbLabz

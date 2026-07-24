@@ -11,43 +11,46 @@ import {
 
 const slides = [
   {
-    title: "Custom tools for smarter operations",
-    src: "/instagram-first-post/crumblabz-launch-carousel-01.png"
+    title: "Describe it Monday. Use it Friday.",
+    src: "/instagram-first-post/crumblabz-minimal-carousel-01.png"
   },
   {
-    title: "Where businesses lose time",
-    src: "/instagram-first-post/crumblabz-launch-carousel-02.png"
+    title: "One problem at a time",
+    src: "/instagram-first-post/crumblabz-minimal-carousel-02.png"
+  },
+  {
+    title: "Processes that eat hours",
+    src: "/instagram-first-post/crumblabz-minimal-carousel-03.png"
+  },
+  {
+    title: "The CrumbLabz way",
+    src: "/instagram-first-post/crumblabz-minimal-carousel-04.png"
   },
   {
     title: "Real tools, really shipped",
-    src: "/instagram-first-post/crumblabz-launch-carousel-03.png"
+    src: "/instagram-first-post/crumblabz-minimal-carousel-05.png"
   },
   {
-    title: "Describe Monday, use Friday",
-    src: "/instagram-first-post/crumblabz-launch-carousel-04.png"
-  },
-  {
-    title: "Start with one headache",
-    src: "/instagram-first-post/crumblabz-launch-carousel-05.png"
+    title: "Tell us your headache",
+    src: "/instagram-first-post/crumblabz-minimal-carousel-06.png"
   }
 ];
 
-const caption = `Custom tools for smarter operations.
+const caption = `Describe it Monday. Use it Friday.
 
-Most businesses do not need another giant platform.
-They need the right tool around the workflow that is slowing them down.
+Custom operations software for real businesses, designed and shipped in days. One problem at a time.
 
-CrumbLabz turns operational headaches into working software:
-- dashboards that replace manual reporting
-- approval flows that stop work getting lost
-- trackers that make ownership clear
-- automations that remove repetitive admin
-
-You describe the problem. We design and build a working solution, often in days, not months.
+Every business has a process that quietly eats hours. CrumbLabz builds focused tools for the workflows that slow teams down:
+- manual data entry
+- slow reporting
+- disconnected tools
+- slow customer response
+- repetitive admin tasks
+- no visibility into data
 
 Tell us your headache.
 
-#CustomSoftware #Operations #BusinessAutomation #WorkflowAutomation #Dashboards #CrumbLabz`;
+#CustomSoftware #Operations #WorkflowAutomation #BusinessAutomation #CrumbLabz`;
 
 export const metadata: Metadata = {
   title: "First Instagram Post Review | CrumbLabz Social Engine",
@@ -75,13 +78,12 @@ export default function InstagramFirstPostPage() {
                   CrumbLabz Instagram
                 </p>
                 <h1 className="text-2xl font-bold tracking-0 text-ink sm:text-3xl">
-                  Website-Inspired Launch Carousel
+                  Minimal Website-Matched Launch Carousel
                 </h1>
                 <p className="mt-1 max-w-3xl text-sm text-stone-600">
                   A launch-ready asset for the CrumbLabz social automation
-                  plan: official site logo, warm website styling, real
-                  portfolio-style product previews, and website-matched
-                  messaging.
+                  plan: exact live website assets, restrained brand colours,
+                  and short copy pulled from the current homepage.
                 </p>
               </div>
             </div>
@@ -122,7 +124,7 @@ export default function InstagramFirstPostPage() {
             },
             {
               label: "Format",
-              value: "5 slides",
+              value: "6 slides",
               detail: "1080x1080 carousel"
             },
             {
@@ -148,8 +150,8 @@ export default function InstagramFirstPostPage() {
           <strong className="text-ink">Review note:</strong>
           <span className="ml-2">
             This version directly addresses the design feedback: official
-            CrumbLabz logo, website-inspired styling, product proof visuals,
-            and finished carousel assets ready for approval.
+            CrumbLabz logo, live website hero image, minimal styling, and
+            finished carousel assets ready for approval.
           </span>
         </section>
 
@@ -212,7 +214,7 @@ export default function InstagramFirstPostPage() {
               <h2 className="text-lg font-bold text-ink">Downloads</h2>
               <div className="mt-4 grid gap-2">
                 <a
-                  href="/instagram-first-post/crumblabz-launch-carousel.zip"
+                  href="/instagram-first-post/crumblabz-minimal-carousel.zip"
                   download
                   className="inline-flex h-10 items-center justify-center gap-2 rounded-md border border-mint bg-mint px-3 text-sm font-semibold text-white transition hover:bg-mint/90"
                 >
@@ -220,7 +222,7 @@ export default function InstagramFirstPostPage() {
                   Download all assets
                 </a>
                 <a
-                  href="/instagram-first-post/crumblabz-launch-caption.txt"
+                  href="/instagram-first-post/crumblabz-minimal-caption.txt"
                   download
                   className="inline-flex h-10 items-center justify-center gap-2 rounded-md border border-stone-200 bg-white px-3 text-sm font-semibold text-graphite transition hover:bg-stone-50"
                 >

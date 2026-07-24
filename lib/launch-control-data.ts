@@ -128,7 +128,7 @@ export const profileKit: ProfileKitItem[] = [
     cadence: "2 posts / week",
     role: "Visual proof and carousels",
     setupCopy:
-      "Custom tools for smarter operations. We turn messy workflows into simple, working software.",
+      "Custom operations software for real businesses, designed and shipped in days. One problem at a time.",
     cta: "Describe your business headache.",
     notes:
       "Use carousels, screenshots, and short reels. Avoid generic AI art."
@@ -154,11 +154,11 @@ export const launchContentDrafts: LaunchContentDraft[] = [
     platform: "linkedin",
     format: "Text post",
     theme: "Positioning",
-    title: "Custom tools for smarter operations",
+    title: "Describe it Monday. Use it Friday.",
     copy:
-      "Custom tools for smarter operations.\n\nMost businesses do not need another giant platform.\n\nThey need the right tool around the workflow that is slowing them down.\n\nCrumbLabz turns operational headaches into working software: dashboards that replace manual reporting, approval flows that stop work getting lost, trackers that make ownership clear, and automations that remove repetitive admin.\n\nYou describe the problem. We design and build a working solution, often in days, not months.\n\nTell us your headache.",
+      "Describe it Monday. Use it Friday.\n\nCustom operations software for real businesses, designed and shipped in days. One problem at a time.\n\nEvery business has a process that quietly eats hours. CrumbLabz builds focused tools for the workflows that slow teams down: manual data entry, slow reporting, disconnected tools, slow customer response, repetitive admin tasks, and no visibility into data.\n\nTell us your headache.",
     assetDirection:
-      "Use the polished website-inspired launch carousel with product-preview proof cards.",
+      "Use the minimal website-matched launch carousel with the live hero-sky image and exact CrumbLabz logo.",
     status: "Ready to review"
   },
   {
@@ -205,11 +205,11 @@ export const launchContentDrafts: LaunchContentDraft[] = [
     platform: "instagram",
     format: "Carousel",
     theme: "Website-inspired launch carousel",
-    title: "Custom tools for smarter operations",
+    title: "Describe it Monday. Use it Friday.",
     copy:
-      "Slide 1: Custom tools for smarter operations.\nSlide 2: Where good businesses lose time.\nSlide 3: Real tools, really shipped.\nSlide 4: Describe it Monday. Use it Friday.\nSlide 5: Start with one operational headache.",
+      "Slide 1: Describe it Monday. Use it Friday.\nSlide 2: One problem at a time.\nSlide 3: Every business has a process that quietly eats hours.\nSlide 4: Less waiting. More working.\nSlide 5: Real tools, really shipped.\nSlide 6: Tell us your headache.",
     assetDirection:
-      "Five finished 1080x1080 carousel slides with official logo, warm site styling, website portfolio proof cards, and caption.",
+      "Six finished 1080x1080 carousel slides using the live website hero image, official logo, minimal colours, and homepage copy.",
     status: "Ready to review"
   },
   {
